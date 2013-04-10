@@ -23,7 +23,12 @@ KISSY.add("app/models/modelmanager",function(S,BaseManager,Model){
             uri:'message:number',
             cacheKey:'app/common/models/mm/message/number',
             cacheTime:60*1000
+        },
+        {
+            name:'Home_Index',
+            uri:'home:index'
         }
+
     ]);
     return Manager;
 },{

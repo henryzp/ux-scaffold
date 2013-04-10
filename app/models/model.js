@@ -1,9 +1,8 @@
 KISSY.add("app/models/model",function(S,BaseModel){
     return BaseModel.extend({
         urlMap:{
-            protocol:{
-                query:'protocol/getProtocol.json',
-                accept:'protocol/acceptProtocol.json'
+            home:{
+                index:'api/home.json',
             },
             message:{
                 number:'api/getUnreadNum.json'
