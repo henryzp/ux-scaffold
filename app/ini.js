@@ -20,7 +20,7 @@ KISSY.add("app/ini",function(S){
             var me = this,
                 progressBarNode = S.one('.progress_bar_content'),
                 progressBarText=S.one('.progress_bar_text');
-            var width=(p * 100).toFixed(0) + '%'
+            var width=(p * 100).toFixed(0) + '%';
             progressBarNode.css({'width': width});
             progressBarText.text(width);
             if(p==1){
@@ -89,7 +89,7 @@ KISSY.add("app/ini",function(S){
             }
             return 'app/views/default';
         }
-    }
+    };
 },{
     requires:["node"]
 });

@@ -10,7 +10,7 @@ KISSY.add("app/common/views/404",function(S,View){
 				}
 			}
 		}
-	})
+	});
 },{
 	requires:["magix/view"]
 });

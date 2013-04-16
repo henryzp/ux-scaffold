@@ -135,7 +135,7 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
          */
         addWaitModel:function(model,options){
             var self=this;
-            if(!self.$wmList)self.$wmList=[];
+            if(!self.$wmList){self.$wmList=[];}
             self.$wmList.push({
                 model:model,
                 options:options
@@ -178,7 +178,7 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
                     }else if(S.isArray(data)){
                         data={
                             list:data
-                        }
+                        };
                     }
                     if(resp.msg){
                         data.msg=resp.msg;
@@ -188,7 +188,7 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
             }else{
                 return {
                     data:resp
-                }
+                };
             }
             return {};
         },
@@ -258,7 +258,7 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
                 },
                 complete:function(){
                     SyncCounter--;
-                    if(SyncCounter==0){
+                    if(SyncCounter===0){
                         //Bar.hide()
                     }
                 }

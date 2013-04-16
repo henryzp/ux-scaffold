@@ -172,7 +172,7 @@ var Event={
             var len=list.length-1,end=len+1,idx;
             while(end--){
                 idx=lastToFirst?end:len-end;
-                fn=list[idx];
+                var fn=list[idx];
                 if(fn.d){
                     list.splice(idx,1);
                     len--;

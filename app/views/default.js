@@ -46,7 +46,7 @@ KISSY.add("app/views/default", function(S, View, VOM, UA, Node) {
             zone.delegate('focusin', 'input,textarea', this.$ieFocus = focus);
             zone.delegate('focusout', 'input,textarea', this.$ieBlur = blur);
         },
-        unfixLowerIE: function(zone) {
+        unfixLowerIE: function() {
             var zone = S.one(document.body);
             zone.undelegate('focusin', 'input,textarea', this.$ieFocus);
             zone.undelegate('focusout', 'input,textarea', this.$ieBlur);
@@ -84,4 +84,4 @@ KISSY.add("app/views/default", function(S, View, VOM, UA, Node) {
     });
 }, {
     requires: ['mxext/view', 'magix/vom', 'ua', 'node']
-})
+});

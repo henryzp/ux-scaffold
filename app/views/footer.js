@@ -3,7 +3,7 @@ KISSY.add("app/views/footer",function(S,View){
 		render:function(){
 			this.setViewPagelet();
 		}
-	})
+	});
 },{
 	requires:["mxext/view","brix/gallery/footer/index.css"]
 });

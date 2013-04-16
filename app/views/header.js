@@ -24,7 +24,7 @@ KISSY.add("app/views/header", function(S, View, MM) {
                 }
             }
         }
-    })
+    });
 }, {
     requires: ["mxext/view", "app/models/modelmanager"]
 });
