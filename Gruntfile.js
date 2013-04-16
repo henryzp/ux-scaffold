@@ -1,6 +1,13 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        componentjs:{
+            componentjs: {
+                files: {
+                    "build/components/": "components/"
+                }
+            }
+        },
         jshint: {
             files: ['app/*.js','app/**/*.js'],
             options: {
@@ -57,9 +64,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     //tasks
-    //grunt.loadTasks('tasks');
+    grunt.loadTasks('tasks');
 
     // Default task.
-    grunt.registerTask('default', ['jshint','connect','watch']);
+    grunt.registerTask('default', ['jshint','componentjs','connect','watch']);
 
 };
