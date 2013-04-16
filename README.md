@@ -4,7 +4,15 @@ ux-scaffold
 
 
 
+
+
 ## 需要完成的工作
 
 * 修改app/models/basemodel.js里的sync方法，以符合和后端开发的接口约定
 * 增加tasks，完成项目的打包上线。
+
+
+## 启动server
+
+	grunt connect:server:keepalive
+
