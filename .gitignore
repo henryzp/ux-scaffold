@@ -2,5 +2,5 @@
 .*.swp
 .idea
 node_modules
-
+build
 *.TODO
