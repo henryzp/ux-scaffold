@@ -9,7 +9,7 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            files: ['app/*.js','app/**/*.js'],
+            files: ['app/*.js','app/**/*.js','components/**/*.js'],
             options: {
                 browser: true,
                 curly: true,
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
         },
         watch: {
             jshint:{
-                files: ['app/*.js','app/**/*.js'],
+                files: ['app/*.js','app/**/*.js','components/**/*.js'],
                 tasks: ['jshint']
             }
         }
