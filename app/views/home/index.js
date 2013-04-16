@@ -8,8 +8,11 @@ KISSY.add("app/views/home/index", function(S, View, MM) {
             var me = this;
             var request = MM.fetchAll([{
                 name: "Home_Index"
-            }], function(MesModel) {
-                me.setViewPagelet({xx:MesModel.get("xx")});
+            }], function(data) {
+                me.setViewPagelet({
+                    count: data.get('count'),
+                    list: data.get('list')
+                });
             }, function(msg) {
                 //读取数据错误
                 me.setViewHTML(msg);

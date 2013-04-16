@@ -20,8 +20,8 @@ var MxIgnore='mx-ignore';
 var TypesRegCache={};
 
 var Body=MIX({
-    
-    
+
+
 
     processEvent:function(e){
         var me=this;
@@ -64,7 +64,7 @@ var Body=MIX({
                     }
                 }
                 if(handler){//有处理的vframe,派发事件，让对应的vframe进行处理
-                    
+
                     me.fire('event',{
                         info:info,
                         type:type,
@@ -252,7 +252,7 @@ var Event={
                 delete cache[type];
             }
         }
-    } 
+    }
 },{
     requires:["node"]
 });/**
@@ -262,7 +262,7 @@ var Event={
  */
 KISSY.add('magix/impl/magix',function(S){
     return {
-        
+
         libRequire:function(name,fn){
             var me=this;
             if(name){
@@ -400,7 +400,7 @@ KISSY.add("magix/impl/router",function(S){
                 var equal=location.href==initialURL;
                 if(!me.$firedPop&&equal)return;
                 me.$firedPop=true;
-                
+
                 me.route();
             });
         },
@@ -506,7 +506,7 @@ var Templates={};
  * 检测某个对象是否拥有某个属性
  * @param  {Object}  owner 检测对象
  * @param  {String}  prop  属性
- * @return {Boolean} 是否拥有prop属性 
+ * @return {Boolean} 是否拥有prop属性
  */
 var has=function(owner,prop){
     if(!owner)return false;//false 0 null '' undefined
@@ -550,7 +550,7 @@ var safeExec=function(fns,args,context,i,r,e){
             e=fns[i];
             r=Magix.isFunction(e)&&e.apply(context,args);
 
-        
+
 
     }
     return r;
@@ -583,42 +583,42 @@ var Magix={
      * @param {Object} o 待检测的对象
      * @return {Boolean}
      */
-    
+
     /**
      * 判断o是否为对象
      * @function
      * @param {Object} o 待检测的对象
      * @return {Boolean}
      */
-    
+
     /**
      * 判断o是否为函数
      * @function
      * @param {Object} o 待检测的对象
      * @return {Boolean}
      */
-    
+
     /**
      * 判断o是否为正则
      * @function
      * @param {Object} o 待检测的对象
      * @return {Boolean}
      */
-    
+
     /**
      * 判断o是否为字符串
      * @function
      * @param {Object} o 待检测的对象
      * @return {Boolean}
      */
-    
+
     /**
      * 判断o是否为数字
      * @function
      * @param {Object} o 待检测的对象
      * @return {Boolean}
      */
-    
+
     /**
      * 判断是否可转为数字
      * @param  {Object}  o 待检测的对象
@@ -634,7 +634,7 @@ var Magix={
      * @param {Function} fn 加载完成后的回调方法
      * @private
      */
-    
+
     /**
      * 通过xhr同步获取文件的内容，仅开发magix时使用
      * @function
@@ -642,13 +642,13 @@ var Magix={
      * @return {String} 文件内容
      * @private
      */
-    
+
     /**
      * 设置底层类库的环境
      * @function
      * @private
      */
-    
+
     /**
      * 把src对象的值混入到aim对象上
      * @function
@@ -663,13 +663,13 @@ var Magix={
      * @function
      * @type {Function}
      */
-    
+
     /**
      * 检测某个对象是否拥有某个属性
      * @function
      * @param  {Object}  owner 检测对象
      * @param  {String}  prop  属性
-     * @return {Boolean} 是否拥有prop属性 
+     * @return {Boolean} 是否拥有prop属性
      */
     has:has,
     /**
@@ -784,7 +784,7 @@ var Magix={
             };
 
             me.libEnv(refToLib);
-            
+
             me.libRequire(['magix/router','magix/vom'],function(R,V){
                 R.on('locationChanged',function(e){
                     if(e.slient){
@@ -903,7 +903,7 @@ var Magix={
      */
     pathToObject:function(path){
         //把形如 /xxx/a=b&c=d 转换成对象 {pathname:'/xxx/',params:{a:'b',c:'d'}}
-        //1. /xxx/a.b.c.html?a=b&c=d  pathname /xxx/a.b.c.html 
+        //1. /xxx/a.b.c.html?a=b&c=d  pathname /xxx/a.b.c.html
         //2. /xxx/?a=b&c=d  pathname /xxx/
         //3. /xxx/#?a=b => pathname /xxx/
         //4. /xxx/index.html# => pathname /xxx/index.html
@@ -918,13 +918,13 @@ var Magix={
         var pathname=EMPTY;
         if(PathTrimParamsReg.test(path)){//有#?号，表示有pathname
             pathname=path.replace(PathTrimParamsReg,EMPTY)
-        }else if(!~path.indexOf('=')){//没有=号，路径可能是 xxx 相对路径 
+        }else if(!~path.indexOf('=')){//没有=号，路径可能是 xxx 相对路径
             pathname=path;
         }
-        
+
         if(pathname){
             if(ProtocalReg.test(pathname)){//解析以https?:开头的网址
-                var first=pathname.indexOf('/',8);//找最近的 / 
+                var first=pathname.indexOf('/',8);//找最近的 /
                 if(first==-1){//未找到，比如 http://etao.com
                     pathname='/';//则pathname为  /
                 }else{
@@ -979,7 +979,7 @@ var Magix={
  * @version 1.0
  */
 KISSY.add('magix/router',function(S,IRouter,Magix,Event){
-    
+
 var HAS=Magix.has;
 var MIX=Magix.mix;
 var D=document;
@@ -997,7 +997,7 @@ var isParam=function(params){
     return r;
 };
 var isPathname=function(){
-    return HAS(this,PATHNAME);  
+    return HAS(this,PATHNAME);
 };
 var isView=function(){
     return HAS(this,'view');
@@ -1077,12 +1077,12 @@ var Router=MIX({
      * 使用history state做为改变url的方式来保存当前页面的状态
      * @function
      */
-    
+
     /**
      * 使用hash做为改变url的方式来保存当前页面的状态
      * @function
      */
-    
+
     /**
      * 比较2个参数对象值是否一样，浅比较
      * @param  {Object} p1 给定的第一个对象
@@ -1132,7 +1132,7 @@ var Router=MIX({
         //如果没有配置，则在找不到相应的view时，显示默认的首页view
         //temp.hasNotFound=HAS(pathCfg,'notFound');
         temp.nfView=mxConfig.notFoundView;
-        
+
         return me.$pnr=temp;
     },
     /**
@@ -1200,7 +1200,7 @@ var Router=MIX({
         href=href||WIN.location.href;
 
         var me=this;
-        var cache=me.qH;        
+        var cache=me.qH;
         if(isUtf8){
             try{
                 href=DECODE(href);
@@ -1264,11 +1264,11 @@ var Router=MIX({
             如果hash中存在pathname则使用hash中的，否则用query中的
 
             2.如果指定不用history state则直接使用hash中的pathname
-            
+
             以下是对第1条带hash的讨论
             // http://etao.com/list/?a=b#!/home?page=2&rows=20
             //  /list/index
-            //  /home 
+            //  /home
             //   http://etao.com/list?page=3#!/home?page=2;
             // 情形A. pathname不变 http://etao.com/list?page=3#!/list?page=2 到支持history state的浏览器上 参数合并;
             // 情形B .pathname有变化 http://etao.com/list?page=3#!/home?page=2 到支持history state的浏览器上 参数合并,pathname以hash中的为准;
@@ -1301,7 +1301,7 @@ var Router=MIX({
         }
         var view=me.getViewPath(tempPathname);
         return MIX(queryHash,view);
-        /*return MIX(queryHash,{ //先不加referrer 
+        /*return MIX(queryHash,{ //先不加referrer
             referrer:me.$referrer||EMPTY,
             referrerLocation:me.$lLoc||null
         });*/
@@ -1379,14 +1379,14 @@ var Router=MIX({
         return this.compareObject(oldLocation.params,newLocation.params);
     },
     /**
-     * 导航到当前的路径 
+     * 导航到当前的路径
      * @param  {String} path 路径
      */
     navigate2:function(path){
         var me=this;
         if(path&&Magix.isString(path)){
             var pathObj=me.parsePath(path);
-            
+
             if(pathObj[PATHNAME]){
                 if(mxConfig.nativeHistory&&!me.supportState()){//指定使用history state但浏览器不支持，需要把query中的存在的参数以空格替换掉
                     var query=me.$tLoc.query;
@@ -1417,14 +1417,14 @@ var Router=MIX({
                 }else{
                     /*
                         window.onhashchange=function(e){
-                            
+
                         };
                         (function(){
                             location.hash='a';
                             location.hash='b';
                             location.hash='c';
                         }());
-                        
+
 
                      */
                     var loc=me.parseLocation(tempPath);
@@ -1450,13 +1450,13 @@ var Router=MIX({
      *      R.navigate({
      *          page:2,
      *          rows:20
-     *      },'/list');//导航到 /list?page=2&rows=20 
+     *      },'/list');//导航到 /list?page=2&rows=20
      * });
      */
     /*
         1.
             render:function(){
-                
+
             },
             events:{
                 click:{
@@ -1479,14 +1479,14 @@ var Router=MIX({
                 params=pathname+'?'+params;
             }
         }
-        
+
         this.navigate2(params);
     }
-    
+
     /**
      * 当window.location.href有改变化时触发
-     * @name Router.locationChanged 
-     * @event 
+     * @name Router.locationChanged
+     * @event
      * @param {Object} e 事件对象
      * @param {Object} e.location 地址解析出来的对象，包括query hash 以及 query和hash合并出来的params等
      * @param {Object} e.changed 有哪些值发生改变的对象
@@ -1723,7 +1723,7 @@ Mix(Vframe.prototype,{
                     if(useTurnaround){
                         me.newViewCreated(true);
                     }
-                    
+
                     if(!e.tmpl){
                         if(!useTurnaround&&node._dataChged){
                             node.innerHTML=node._dataTmpl;
@@ -1731,14 +1731,14 @@ Mix(Vframe.prototype,{
                         me.mountZoneVframes();
                     }
                     view.on('rendered',function(){//再绑定rendered
-                        
+
                         me.mountZoneVframes();
                     });
                     view.on('prerender',function(e){
                         DestroySubVframes.call(me,e.anim);
                     });
                 },0);
-                
+
                 me.view=view;
                 var pVframe=me.owner.getVframe(me.pId);
                 if(pVframe&&pVframe.view){
@@ -1759,7 +1759,7 @@ Mix(Vframe.prototype,{
         var me=this;
         //me.owner.suspend();
         var me=this;
-    
+
         if(me.view){
             DestroySubVframes.call(me,useAnim);
 
@@ -1837,7 +1837,7 @@ Mix(Vframe.prototype,{
                 child.unmountView(useAnim);
                 me.owner.remove(cId);
                 $(cId).id='';
-                
+
                 delete me.cS[cId];
                 me.cC--;
             }
@@ -1913,7 +1913,7 @@ Mix(Vframe.prototype,{
                     safeExec(view.locationChange,args,view);
                 }
                 var cs=args.cs||Magix.keys(me.cS);
-                
+
                 for(var i=0,j=cs.length,vom=me.owner,vf;i<j;i++){
                     vf=vom.getVframe(cs[i]);
                     if(vf){
@@ -1973,12 +1973,12 @@ Mix(Vframe.prototype,{
                     parent.rM[me.id]=parent.cS[me.id];
                     parent.rC++;
                     if(parent.rC==parent.cC){
-                        
+
                         delete parent.fca;
                         parent.childrenCreated();
                     }/*else{无需求，暂时不加
                         parent.view.fire('childrenProgress',{complete:parent.rC/parent.cC});
-                        
+
                         view1 view2  childrenCreated;
                         mountZoneViews: view3
                         xx childrenCreated;
@@ -1994,11 +1994,11 @@ Mix(Vframe.prototype,{
                     var byHand=parent.rM[me.id];
                     delete parent.rM[me.id];
                     parent.rC--;
-                    
+
                     if(!byHand&&!parent.fca){//childrenAlter只触发一次
                         parent.fca=1;
                         delete parent.fcc;
-                        
+
                         parent.view.fire('childrenAlter');
                         parent.fire('childrenAlter');
                     }
@@ -2022,7 +2022,7 @@ Mix(Vframe.prototype,{
                 <vframe id="v1" mx-view="..."></vframe>
                 <vframe id="v2" mx-view="..."></vframe>
                 <vframe id="v3" mx-view="..."></vframe>
-                
+
                 v1渲染后postMessage向v2 v3发消息，此时v2 v3的view对象是构建好了，但它对应的模板可能并未就绪，需要等待到view创建完成后再发消息过去
              */
             //if(view.rendered){
@@ -2031,7 +2031,7 @@ Mix(Vframe.prototype,{
                 view.on('created',function(){
                     safeExec(this.receiveMessage,args,this);
                 });
-            }   */              
+            }   */
         //}else{//经过上面的判断，到这一步说明开始加载view但尚未加载完成
             /*
                 Q:当vframe没有view属性但有viewName表明属于这个vframe的view异步加载尚未完成，但为什么还要向这个view发送消息呢，丢弃不可以吗？
@@ -2046,19 +2046,19 @@ Mix(Vframe.prototype,{
     }*/
     /**
      * view加载完成时触发
-     * @name Vframe#viewLoad 
+     * @name Vframe#viewLoad
      * @event
      * @param {Object} e view加载完成后触发
      * @param {Object} e.view 加载的view对象
      */
-    
+
     /**
      * 子孙view修改时触发
      * @name Vframe#childrenAlter
      * @event
      * @param {Object} e
      */
-    
+
     /**
      * 子孙view创建完成时触发
      * @name Vframe#childrenCreated
@@ -2097,17 +2097,17 @@ var MxConfig=Magix.cfg;
  * @property {Integer} sign view的签名，用于刷新，销毁等的异步标识判断
  * @property {String} template 当前view对应的模板字符串(当hasTemplate为true时)，该属性在created事件触发后才存在
  * @property {Boolean} rendered 标识当前view有没有渲染过，即created事件有没有触发过
- * @property {Object} location window.locaiton.href解析出来的对象 
+ * @property {Object} location window.locaiton.href解析出来的对象
  * @example
  * 关于View.prototype.events:
  * 示例：
  *   html写法：
- *   
+ *
  *   &lt;input type="button" mxclick="test:100@id:xinglie@name" value="test" /&gt;
  *   &lt;a href="http://etao.com" mxclick="test:etao.com:_prevent_"&gt;http://etao.com&lt;/a&gt;
  *
  *   view写法：
- *   
+ *
  *   events:{
  *      click:{
  *          test:function(e){
@@ -2122,7 +2122,7 @@ var MxConfig=Magix.cfg;
  *      },
  *      mousedown:{
  *          test:function(e){
- *              
+ *
  *          }
  *      }
  *   }
@@ -2206,7 +2206,7 @@ Magix.mix(VProto,{
      * @param {String} path 路径
      * @param {Function} fn 获取完成后的回调
      */
-    
+
     /**
      * 渲染view，供最终view开发者覆盖
      * @function
@@ -2480,7 +2480,7 @@ Magix.mix(VProto,{
         return true;
     },
     /**
-     * 销毁当前view内的iframes 
+     * 销毁当前view内的iframes
      */
     /*destroyFrames:function(){
         /*var me=this;
@@ -2507,7 +2507,7 @@ Magix.mix(VProto,{
         var me=this;
         //me.fire('refresh',null,true,true);//先清除绑定在上面的app中的刷新
         me.fire('destroy',null,true,true);//同上
-        
+
         me.delegateEvents(true);
         //if(!keepContent){
             //me.destroyFrames();
@@ -2516,7 +2516,7 @@ Magix.mix(VProto,{
                 //node.innerHTML=node._dataTmpl;
             //}
         //}
-        
+
         //me.un('prerender',null,true); 销毁的话也就访问不到view对象了，这些事件不解绑也没问题
         //me.un('rendered',null,true);
         me.sign=0;
@@ -2566,7 +2566,7 @@ Magix.mix(VProto,{
                 var evtName=infos.shift();
                 var flag=infos[infos.length-1];
                 var popLast;
-                
+
                 /*
                     考虑到与第三方组件集成，所以暂试点取消事件冒泡的功能
                     @2012.11.30 对于弹出层内删除节点的问题，似乎只有取消冒泡能解决，所以还是恢复原来的样子，晕哦
@@ -2650,7 +2650,7 @@ Magix.mix(VProto,{
      * //异步更新带来的问题：
      * //view对象监听地址栏中的某个参数，当这个参数发生变化时，view调用render方法进行刷新，因为是异步的，所以并不能立即更新界面，
      * //当监控的这个参数连续变化时，view会多次调用render方法进行刷新，由于异步，你并不能保证最后刷新时发出的异步请求最后返回，
-     * //有可能先发出的请求后返回，这样就会出现界面与url并不符合的情况，比如tabs的切换和tabPanel的更新，连续点击tab1 tab2 tab3 
+     * //有可能先发出的请求后返回，这样就会出现界面与url并不符合的情况，比如tabs的切换和tabPanel的更新，连续点击tab1 tab2 tab3
      * //会引起tabPanel这个view刷新，但是异步返回有可能3先回来2最后回来，会导致明明选中的是tab3，却显示着tab2的内容
      * //所以要么你自已在回调中做判断，要么把上面的示例改写成下面这样的：
      *  render:function(){
@@ -2760,7 +2760,7 @@ Magix.mix(VProto,{
      *                  Helper.tipMsg('添加失败')
      *              }
      *          })
-     *      
+     *
      *      }
      * }
      *
@@ -2777,13 +2777,13 @@ Magix.mix(VProto,{
      *          });
      *
      *          var sign=e.view.signature();//获取签名
-     * 
+     *
      *          m.save({
      *              success:function(){//该回调不太适合托管
      *                  m.endTransaction();
      *                  if(sign==e.view.signature()){//相等时表示view即没刷新也没销毁，此时才提示
      *                      Helper.tipMsg('添加成功')
-     *                  }       
+     *                  }
      *              },
      *              error:function(msg){//该方法同样不适合托管，当数据保存失败时，需要回滚数据，而如果此时view有刷新或销毁，会导致该方法不被调用，无法达到数据的回滚
      *                  m.rollbackTransaction();
@@ -2792,7 +2792,7 @@ Magix.mix(VProto,{
      *                  }
      *              }
      *          })
-     *      
+     *
      *      }
      * }
      *
@@ -2852,28 +2852,28 @@ Magix.mix(VProto,{
      * @event
      * @param {Object} e
      */
-    
+
     /**
      * 当view首次完成界面的html设置后触发，view有没有模板均会触发该事件，对于有模板的view，会等到模板取回，第一次调用setViewHTML更新界面后才触发，总之该事件触发后，您就可以访问view的HTML DOM节点对象（该事件仅代表自身的html创建完成，如果需要对整个子view也要监控，请使用childrenCreated事件）
-     * @name View#created 
+     * @name View#created
      * @event
      * @param {Object} e view首次调用render完成界面的创建后触发
      */
 
     /**
      * 每次调用setViewHTML更新view内容完成后触发
-     * @name View#rendered 
+     * @name View#rendered
      * @event
      * @param {Object} e view每次调用setViewHTML完成后触发，当hasTemplate属性为false时，并不会触发该事 件，但会触发created首次完成创建界面的事件
      */
-    
+
     /**
      * view销毁时触发
      * @name View#destroy
      * @event
      * @param {Object} e
      */
-    
+
     /**
      * view自身和所有子孙view创建完成后触发，常用于要在某个view中统一绑定事件或统一做字段校验，而这个view是由许多子孙view组成的，通过监听该事件可知道子孙view什么时间创建完成（注意：当view中有子view，且该子view是通过程序动态mountView而不是通过mx-view指定时，该事件会也会等待到view创建完成触发，而对于您在某个view中有如下代码：<div><vframe></vframe></div>，有一个空的vframe且未指定mx-view属性，同时您在这个view中没有动态渲染vframe对应的view，则该事件不会触发，magix无法识别出您留空vframe的意图，到底是需要动态mount还是手误，不过在具体应用中，出现空vframe且没有动态mount几乎是不存在的^_^）
      * @name View#childrenCreated
@@ -2886,21 +2886,21 @@ Magix.mix(VProto,{
      *      })
      * }
      */
-    
+
     /**
      * view自身和所有子孙view有改动时触发，改动包括刷新和重新mountView，与childrenCreated一起使用，当view自身和所有子孙view创建完成会触发childrenCreated，当其中的一个view刷新或重新mountView，会触发childrenAlter，当是刷新时，刷新完成会再次触发childrenCreated事件，因此这2个事件不只触发一次！！但这2个事件会成对触发，比如触发几次childrenAlter就会触发几次childrenCreated
      * @name View#childrenAlter
      * @event
      * @param {Object} e
      */
-    
+
     /**
      * 异步更新ui的方法(render,updateUI,renderUI)被调用前触发
      * @name View#asyncall
      * @event
      * @param {Object} e
      */
-    
+
     /**
      * 异步更新ui的方法(render,updateUI,renderUI)被调用后触发
      * @name View#asyncalled
@@ -2968,7 +2968,7 @@ var VOM=Magix.mix({
             vframesCount--;
             delete Vframes[id];
             VOM.fire('remove',{vframe:vf});
-        }        
+        }
     },
     /**
      * 通知其中的一个view创建完成
@@ -3126,7 +3126,7 @@ KISSY.add("mxext/mmanager",function(S,Magix){
     var wrapDone=function(fn,context){
         var a = Slice.call(arguments, 2);
         return function(){
-            
+
             return fn.apply(context,a.concat(Slice.call(arguments)));
         }
     };
@@ -3184,10 +3184,10 @@ KISSY.add("mxext/mmanager",function(S,Magix){
             if(!meta){
                 throw new Error('Not found:'+modelAttrs.name);
             }
-            
+
             var cacheKey=modelAttrs.cacheKey||meta.cacheKey;
             var entity;
-            
+
             var cacheTime=modelAttrs.cacheTime||meta.cacheTime||0;
 
 
@@ -3197,10 +3197,10 @@ KISSY.add("mxext/mmanager",function(S,Magix){
             var needUpdate;
 
             if(cacheKey&&HAS(modelsCache,cacheKey)){//缓存
-                
+
                 entity=modelsCache[cacheKey];
                 if(cacheTime>0){
-                    
+
                     if(S.now()-entity._doneAt>cacheTime){
                         delete modelsCache[cacheKey];//当有更新时，从缓存中删除，防止多次获取该缓存对象导致数据错误
                         needUpdate=true;
@@ -3215,7 +3215,7 @@ KISSY.add("mxext/mmanager",function(S,Magix){
             }
 
             entity.metaParams=metaParams;
-            
+
             if(needUpdate){
                 entity.reset();
                 entity.set(getOptions(modelAttrs));
@@ -3292,8 +3292,8 @@ KISSY.add("mxext/mmanager",function(S,Magix){
                     }
                 }else{
                     hasOneSuccess=true;
-                    
-                    doneArr[idx]=model;                    
+
+                    doneArr[idx]=model;
                     if(cacheKey&&!HAS(modelsCache,cacheKey)){
                         modelsCache[cacheKey]=model;
                     }
@@ -3311,7 +3311,7 @@ KISSY.add("mxext/mmanager",function(S,Magix){
                         onePreSuccess=true;
                     }
                 }
-                
+
                 if(cacheKey&&HAS(modelsCacheKeys,cacheKey)){
                     var fns=modelsCacheKeys[cacheKey];
                     delete modelsCacheKeys[cacheKey];
@@ -3328,7 +3328,7 @@ KISSY.add("mxext/mmanager",function(S,Magix){
                             args=hasOneSuccess?doneArr:[errorMsg];
                             onePreSuccess=hasOneSuccess;
                         }
-                        oneArgs=safeExec(method,args,me);                        
+                        oneArgs=safeExec(method,args,me);
                     }
                     me.$ntId=setTimeout(function(){//前面的任务可能从缓存中来，执行很快
                         me.$task=false;
@@ -3342,10 +3342,10 @@ KISSY.add("mxext/mmanager",function(S,Magix){
                         current:current,
                         error:errorMsg
                     });
-                }               
+                }
             };
             //
-            
+
             for(var i=0,model;i<models.length;i++){
                 model=models[i];
 
@@ -3545,10 +3545,10 @@ KISSY.add("mxext/mmanager",function(S,Magix){
                         cacheKey:'',
                         cacheTime:20000,//缓存多久
                         before:function(m){
-                            
+
                         },
                         after:function(m){
-                            
+
                         }
                     },
                     {
@@ -3557,10 +3557,10 @@ KISSY.add("mxext/mmanager",function(S,Magix){
                             uri:'test'
                         },
                         before:function(m){
-                            
+
                         },
                         after:function(m){
-                            
+
                         }
                     }
                 ]);
@@ -3576,9 +3576,9 @@ KISSY.add("mxext/mmanager",function(S,Magix){
                     {name:'Home_List',cacheKey:'aaa',urlParams:{e:'f'}},
                     {name:'Home_List1',urlParams:{a:'b'}}
                 ],function(m1,m2){
-    
+
                 },function(msg){
-    
+
                 });
             });
          */
@@ -3593,10 +3593,10 @@ KISSY.add("mxext/mmanager",function(S,Magix){
                 postParams:'',
                 cacheTime:20000,//缓存多久
                 before:function(m){
-    
+
                 },
                 after:function(m){
-                    
+
                 }
              */
             var me=this;
@@ -3661,10 +3661,10 @@ KISSY.add("mxext/mmanager",function(S,Magix){
          * var MM=MManager.create(Model);
          * MM.registerMethods({
          *     methodA:function(args,done,error){
-         *         
+         *
          *     },
          *     methodB:function(args,done,error){
-         *         
+         *
          *     }
          * });
          *
@@ -3675,7 +3675,7 @@ KISSY.add("mxext/mmanager",function(S,Magix){
          *     {name:'methodA',params:['a']},
          *     {name:'methodB',params:['b']}
          * ],function(f1Result,f2Result){
-         *     
+         *
          * },function(msg){
          *     alert(msg)
          * })
@@ -3723,7 +3723,7 @@ KISSY.add("mxext/mmanager",function(S,Magix){
                 if(fn){
                     if(!one.params)one.params=[];
                     if(!S.isArray(one.params))one.params=[one.params];
-                    
+
                     one.params.push(check(i,true),check(i));
                     fn.apply(me,one.params);
                 }else{
@@ -4201,7 +4201,7 @@ KISSY.add("mxext/model",function(S,Magix){
                     }
                 }
             }else{
-                
+
                 throw new Error('model not set uri');
             }
             return uri;
@@ -4316,7 +4316,7 @@ KISSY.add("mxext/model",function(S,Magix){
          * m.save({
          *     //...
          *     success:function(){
-         *           m.endTransaction();//成功后通知model结束事务  
+         *           m.endTransaction();//成功后通知model结束事务
          *     },
          *     error:function(){
          *         m.rollbackTransaction();//出错，回滚到原始数据状态
@@ -4409,15 +4409,15 @@ KISSY.add('mxext/view',function(S,View,Router,VM){
         queryEvents:{
             mouseover:{
                 '#id':function(){
-                    
+
                 },
-                '.title':function(){//  S.one('.title').click(); S.one().delegate(); 
-                    
+                '.title':function(){//  S.one('.title').click(); S.one().delegate();
+
                 }
             },
             mouseenter:{
                 '#id':function(e){
-                    
+
                 }
             }
         }
@@ -4440,10 +4440,10 @@ KISSY.add('mxext/view',function(S,View,Router,VM){
          * queryEvents:{
          *      click:{
          *          '#name':function(e){
-         *              
+         *
          *          },
          *          '#name .label':function(e){
-         *              
+         *
          *          }
          *      }
          * }
@@ -4467,7 +4467,7 @@ KISSY.add('mxext/view',function(S,View,Router,VM){
                 for(var p in queryEvents){
                     var evts=queryEvents[p];
                     for(var q in evts){
-                        
+
                         S.all('#'+me.id+' '+q).on(p,me.$queryEventsCache[p+'_'+q]=(function(fn){
                             return function(e){
                                 if(me.enableEvent){
@@ -4486,7 +4486,7 @@ KISSY.add('mxext/view',function(S,View,Router,VM){
                     }
                 }
             }
-            
+
         },
         /**
          * 清除根据选择器添加的事件
@@ -4557,7 +4557,7 @@ KISSY.add('mxext/view',function(S,View,Router,VM){
          *                  S.log('timer');
          *              },2000));//也可以管理定时器
          *
-         *              
+         *
          *              var userList=_self.getManaged('user_list');//通过key取托管的资源
          *
          *              S.log(userList);
@@ -4681,7 +4681,7 @@ KISSY.add('mxext/view',function(S,View,Router,VM){
                 for(var p in cache){
                     var o=cache[p];
                     var res=o.res;
-                    
+
                     if(res.fetchOne&&res.fetchAll){
                         res.destroy();
                         delete cache[p];
@@ -4745,7 +4745,7 @@ KISSY.add('mxext/view',function(S,View,Router,VM){
          * </div>
          * // view code
          *
-         * 
+         *
          * render:function(){
          *     //...
          *     this.setViewPagelet({
@@ -4804,8 +4804,8 @@ KISSY.add('mxext/view',function(S,View,Router,VM){
     },function(){
         var me=this;
         me.vm = new VM();
-        
-        
+
+
         me.on('interact',function(){
             me.on('asyncall',function(){
                 me.destroyAsyncall();
@@ -4929,7 +4929,7 @@ KISSY.add("mxext/viewmodel", function(S) {
         }
         KISSY.use('magix/magix',function(S,M){
             W.Magix=M;
-            if(tempCfg){                
+            if(tempCfg){
                 M.start(tempCfg);
             }
         });
