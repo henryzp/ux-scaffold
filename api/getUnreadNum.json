@@ -1,5 +1,9 @@
 {
-    "code" : "200",
-    "message":"",
-    "result" : "2"
+    "data": {
+        "messageCount": 39
+    },
+    "info": {
+        "message": null,
+        "ok": true
+    }
 }

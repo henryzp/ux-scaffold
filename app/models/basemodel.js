@@ -167,30 +167,30 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
             }
         },*/
         parse:function(resp){
-            var dataType=this.get('dataType');
-            if(!dataType||dataType=='json'){
-                var data=resp.result;
-                if (data) {
-                    if(S.isString(data)){
-                        data={
-                            data:data
-                        };
-                    }else if(S.isArray(data)){
-                        data={
-                            list:data
-                        };
-                    }
-                    if(resp.msg){
-                        data.msg=resp.msg;
-                    }
-                    return data;
-                }
-            }else{
-                return {
-                    data:resp
-                };
-            }
-            return {};
+            // var dataType=this.get('dataType');
+            return resp;
+            // if(!dataType||dataType=='json'){
+            //     return resp;
+            //     // var data=resp.result;
+            //     // if (data) {
+            //     //     if(S.isString(data)){
+            //     //         data={
+            //     //             data:data
+            //     //         };
+            //     //     }else if(S.isArray(data)){
+            //     //         data={
+            //     //             list:data
+            //     //         };
+            //     //     }
+            //     //     if(resp.msg){
+            //     //         data.msg=resp.msg;
+            //     //     }
+            //     //     return data;
+            //     // }
+            // }else{
+            //     return resp;
+            // }
+            // return {};
         },
         sync:function(options){
             //如果流控已经介入，则需要同步的model交给流控去处理
@@ -207,7 +207,7 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
                 type = 'GET',
                 url = model.url(),
                 jsonp = model.get("jsonp"),
-                async = model.get("async"), 
+                async = model.get("async"),
                 data = model.getPostParams(),
                 dataType=model.get('dataType')||'json',
                 oldSucc = options.success;
@@ -220,30 +220,37 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
                 async: async === false ? false : true,
                 success:function (data, msg, xhr) {
                     if(dataType=='json'){
-                        if(data.code=='200'||data.code=="302"){
-                            try {
-                                oldSucc.apply(this, arguments);
-                            } catch (e) {//方法执行出错
-                                console.log(e);
-                                options.error.call(this, e.message, e);
-                            }
-                        }else{
-                            if(data.code=='601'){//需要控制的code 601 etc
-                                var tryTimes=(options.tryTimes||0)+1;
-                                options.tryTimes=tryTimes;
-                                if(tryTimes>4){//如果5次还没搞定，那算了，流控有问题，提示出错
-                                    delete options.tryTimes;
-                                    options.error.call(this,'error data:'+data.code);
-                                }else{
-                                    ProcessController.addWaitModel(model,options);
-                                    ProcessController.start(data.code,tryTimes==2);//第2次尝试时，忽略有效时间
-                                }
-                            }else if(data.code=='600'){//业务异常,msg可以提示
-                                options.error.call(this,data.msg);
-                            }else{//400~5xx异常，联调用
-                                options.error.call(this,MxConfig.debug?data.msg:'系统出错，请刷新重试');
-                            }
+                        if (!data.info.ok) {
+                            options.error.call(this, data.info.message);
+                        } else {
+                            oldSucc.call(this, data.data);
                         }
+                        //
+                        // return;
+                        // if(data.code=='200'||data.code=="302"){
+                        //     try {
+                        //         oldSucc.apply(this, arguments);
+                        //     } catch (e) {//方法执行出错
+                        //         console.log(e);
+                        //         options.error.call(this, e.message, e);
+                        //     }
+                        // }else{
+                        //     if(data.code=='601'){//需要控制的code 601 etc
+                        //         var tryTimes=(options.tryTimes||0)+1;
+                        //         options.tryTimes=tryTimes;
+                        //         if(tryTimes>4){//如果5次还没搞定，那算了，流控有问题，提示出错
+                        //             delete options.tryTimes;
+                        //             options.error.call(this,'error data:'+data.code);
+                        //         }else{
+                        //             ProcessController.addWaitModel(model,options);
+                        //             ProcessController.start(data.code,tryTimes==2);//第2次尝试时，忽略有效时间
+                        //         }
+                        //     }else if(data.code=='600'){//业务异常,msg可以提示
+                        //         options.error.call(this,data.msg);
+                        //     }else{//400~5xx异常，联调用
+                        //         options.error.call(this,MxConfig.debug?data.msg:'系统出错，请刷新重试');
+                        //     }
+                        // }
                     }else{
                         try {
                             oldSucc.apply(this, arguments);
@@ -263,7 +270,7 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
                     }
                 }
             };
-            
+
             if(jsonp) {
                 params.jsonp = (jsonp===true?'_c':jsonp);
                 params.dataType = 'jsonp';
