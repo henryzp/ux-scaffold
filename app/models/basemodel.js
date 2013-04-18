@@ -289,7 +289,7 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
                 params.url = params.url + (~params.url.indexOf('?') ? '&' : '?') + gets;
             }
             console.log(params);
-            return IO(params);
+            return KISSY.io(params);
         }
     });
 },{

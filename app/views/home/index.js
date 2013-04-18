@@ -23,5 +23,5 @@ KISSY.add("app/views/home/index", function(S, View, MM) {
         }
     });
 }, {
-    requires: ["mxext/view", "app/models/modelmanager"]
+    requires: ["mxext/view", "app/models/modelmanager", 'components/mock/index']
 });
