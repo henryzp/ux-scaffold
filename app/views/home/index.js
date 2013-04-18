@@ -17,8 +17,9 @@ KISSY.add("app/views/home/index", function(S, View, MM) {
                 //读取数据错误
                 me.setViewHTML(msg);
             });
+            me.manage(request);
         },
-        locationChange: function(e) {
+        locationChange: function() {
             this.render();
         }
     });
