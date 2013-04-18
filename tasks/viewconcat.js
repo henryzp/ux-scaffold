@@ -37,7 +37,9 @@ module.exports = function(grunt) {
                     mode = js.match(/KISSY\.add\(["']([^"']+)["'],\s*function/);
                 if (mode) {
                     escaped = escaped.replace(/"/g, '\\"').replace(/'/g, '\\\''),
-                    escaped = escaped ? 'Magix.templates["' + mode[1] + '"]="' + escaped + '";\n' : '';
+                    // escaped = escaped ? 'Magix.templates["' + mode[1] + '"]="' + escaped + '";\n' : '';
+                    // Magix.tmpl('app/home/views/index','html')
+                    escaped = escaped ? 'Magix.tmpl("' + mode[1] + '","' + escaped + '");\n' : '';
 
                     grunt.file.write(file.dest, escaped + js)
                     grunt.log.writeln('File ' + file.dest + ' created.')
