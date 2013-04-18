@@ -1,6 +1,6 @@
 KISSY.config({
   packages: [{
-    name: 'mock',
+    name: 'components',
     path: '../'
   }]
 });
@@ -9,7 +9,7 @@ module('mock');
 
 test('mock data', function() {
   stop();
-  KISSY.use(['mock/mock'], function(S, Mock) {
+  KISSY.use(['components/mock/index'], function(S, Mock) {
     var template = {
       "data|5-10": [{
         "married|0-1": true,
@@ -30,15 +30,13 @@ test('mock data', function() {
     var data = Mock.mockJSON.generateFromTemplate(template);
     ok(data.data.length > 0, 'data ok');
 
-    debugger
     start();
   }) // use
 })
 
 test('mock ajax', function() {
-  debugger
   stop();
-  KISSY.use(['mock/mock'], function(S, Mock) {
+  KISSY.use(['components/mock/index'], function(S, Mock) {
     KISSY.io({
       url: 'test.json',
       success: function(data, textStatus, xhrObj) {
