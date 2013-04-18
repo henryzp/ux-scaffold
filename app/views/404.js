@@ -5,7 +5,7 @@ KISSY.add("app/views/404",function(S,View){
 		},
 		events:{
 			click:{
-				goBack:function(e){
+				goBack:function(){
 					history.back();
 				}
 			}

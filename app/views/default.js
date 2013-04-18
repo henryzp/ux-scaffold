@@ -1,4 +1,5 @@
 KISSY.add("app/views/default", function(S, View, VOM, UA, Node) {
+    var $ = Node.all;
     return View.extend({
         init: function() {
             var me = this;
@@ -22,32 +23,32 @@ KISSY.add("app/views/default", function(S, View, VOM, UA, Node) {
                     me.unfixLowerIE();
                 });
             }
-            me.on('childrenAlter', function(e) {
-                //console.log('正在加载页面...');
-                //bar.show('正在加载页面...');
-            });
-            me.on('childrenCreated', function(e) {
-                //bar.hide()
-            });
+            // me.on('childrenAlter', function(e) {
+            //     //console.log('正在加载页面...');
+            //     //bar.show('正在加载页面...');
+            // });
+            // me.on('childrenCreated', function(e) {
+            //     //bar.hide()
+            // });
         },
         /**
          * 兼容低版本的IE
          * @param  {String|HTMLElement} zone 修正的区块
          */
         fixLowerIE: function() {
-            var zone = S.one(document.body);
+            var zone = $(document.body);
             var focus = function(e) {
-                S.one(e.target).addClass('focus');
+                $(e.target).addClass('focus');
             };
             var blur = function(e) {
-                S.one(e.target).removeClass('focus');
+                $(e.target).removeClass('focus');
             };
 
             zone.delegate('focusin', 'input,textarea', this.$ieFocus = focus);
             zone.delegate('focusout', 'input,textarea', this.$ieBlur = blur);
         },
         unfixLowerIE: function() {
-            var zone = S.one(document.body);
+            var zone = $(document.body);
             zone.undelegate('focusin', 'input,textarea', this.$ieFocus);
             zone.undelegate('focusout', 'input,textarea', this.$ieBlur);
         },

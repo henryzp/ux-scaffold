@@ -17,8 +17,7 @@ KISSY.add("app/ini",function(S){
             clearTimeout(me.$checker);
         },
         progress: function(p){
-            var me = this,
-                progressBarNode = S.one('.progress_bar_content'),
+            var progressBarNode = S.one('.progress_bar_content'),
                 progressBarText=S.one('.progress_bar_text');
             var width=(p * 100).toFixed(0) + '%';
             progressBarNode.css({'width': width});

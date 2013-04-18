@@ -4,19 +4,10 @@
  */
 
 module.exports = function(grunt) {
-    // Grunt utilities.
     var task = grunt.task;
     var file = grunt.file;
-    var utils = grunt.utils;
-    var log = grunt.log;
-    var verbose = grunt.verbose;
-    var fail = grunt.fail;
-    var option = grunt.option;
     var config = grunt.config;
-    var template = grunt.template;
-
     // external dependencies
-    var fs = require('fs');
     var path = require('path');
 
     // ==========================================================================
@@ -70,8 +61,6 @@ module.exports = function(grunt) {
         this.files.forEach(function(f) {
             var src = f.src[0];
             var dest = f.dest;
-
-            var self = this;
             var files = fs.readdirSync(src);
 
             files.forEach(function(p) {
