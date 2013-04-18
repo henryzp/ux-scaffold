@@ -1,4 +1,4 @@
-KISSY.add("app/views/menu", function(S, View, Sidenav) {
+KISSY.add("app/views/menu", function(S, View, Sidenav, SS) {
     return View.extend({
         init: function() {
             this.observeLocation({
@@ -10,18 +10,14 @@ KISSY.add("app/views/menu", function(S, View, Sidenav) {
             me.setViewPagelet({
                 //动态数据
             }, function() {});
-
-             new Sidenav({
-                el: '#sidebar',
-                index: '#!/promotion/index/',
-                duration: 0.25,
-                pathMap: {
-                    '#!/promotion/campaign/': '#!/promotion/index/',
-                    '#!/promotion/taokeaudit_history/': '#!/promotion/index/'
-                }
+            new Sidenav({
+                sidebar: '#sidebar',
+                inmain: '#inmain',
+                index: '#!/home/',
+                duration: 0.25
             });
         }
     });
 }, {
-    requires: ['mxext/view', 'brix/gallery/sidenav/index', 'brix/gallery/sidenav/index.css']
+    requires: ['mxext/view', 'components/sidenav/', 'components/sidenav/index.css']
 });
