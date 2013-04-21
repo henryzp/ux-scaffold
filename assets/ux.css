@@ -1,3 +1,7 @@
+
+a {
+  color: #777;
+}
 /*首页进度条样式，未确定是否保留*/
 .app_progress_bar {
   background-color: #606060;
@@ -56,17 +60,17 @@
 }
 
 .header {
-  background: #3a7bed;
+  /*background: #3a7bed;*/
   min-width: 960px;
-  height: 40px;
-  line-height: 40px;
+  height: 126px;
+  /*line-height: 126px;*/
   overflow: hidden;
 }
 
 .header .logo {
   font-size: 22px;
   line-height: 34px;
-  color: #fff;
+  color: black;
   margin-left: 15px;
   text-decoration: none;
 }
@@ -80,7 +84,7 @@
 }
 .header .header-right a {
   margin-left: 15px;
-  color: #fff;
+  /*color: #333;*/
   text-decoration: none;
 }
 
