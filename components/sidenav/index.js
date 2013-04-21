@@ -75,7 +75,8 @@ KISSY.add("components/sidenav/index", function(S, Brick) {
     };
 
     S.extend(Sidenav, Brick, {
-        initialize: function() {
+        bindUI: function() {
+            var el = this.get('el');
             this.sidebar = $(this.get('sidebar'));
             this.main = $(this.get('inmain'));
             this.allLinks = this.sidebar.all('a');
