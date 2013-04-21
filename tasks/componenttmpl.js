@@ -5,18 +5,9 @@
 
 module.exports = function(grunt) {
     // Grunt utilities.
-    var task = grunt.task;
     var file = grunt.file;
-    var utils = grunt.utils;
-    var log = grunt.log;
-    var verbose = grunt.verbose;
-    var fail = grunt.fail;
-    var option = grunt.option;
-    var config = grunt.config;
-    var template = grunt.template;
 
     // external dependencies
-    var fs = require('fs');
     var path = require('path');
 
     // ==========================================================================
@@ -30,7 +21,7 @@ module.exports = function(grunt) {
             var str = file.read(destPath);
             var reg = /@TEMPLATE\|(.*?)\|TEMPLATE@/g;
             if (reg.test(str)) {
-                str = str.replace(reg, function($1, $2, $3) {
+                str = str.replace(reg, function($1, $2) {
                     var reg = /Brix\.absoluteFilePath\(.*(?:'|")(.*)?(?:'|")\)/g;
                     var result = reg.exec($2);
                     if (result) {

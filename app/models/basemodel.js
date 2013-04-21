@@ -1,6 +1,5 @@
 KISSY.add("app/models/basemodel",function(S, MxModel,IO){
     var MxConfig=Magix.cfg;
-    var Model;
     var SyncCounter=0;
     /**
      * 流控对象
@@ -289,7 +288,7 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
                 params.url = params.url + (~params.url.indexOf('?') ? '&' : '?') + gets;
             }
             console.log(params);
-            return IO(params);
+            return KISSY.io(params);
         }
     });
 },{
