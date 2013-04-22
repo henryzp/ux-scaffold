@@ -13,34 +13,14 @@ KISSY.add("components/sidenav/index", function(S, Brick) {
     };
 
     Sidenav.ATTRS = {
-        //sidebar id
-        sidebar: {
-            value: '#sidebar'
-        },
-
         //inmain id
         inmain: {
             value: '#inmain'
         },
 
-        //nav id
-        nav: {
-            value: '#nav'
-        },
-
-        //subNav id
-        subNav: {
-            value: '#subNav'
-        },
-
-        //subNavWrap id
-        subNavWrap: {
-            value: '#subNavWrap'
-        },
-
-        //subNavHandle id
-        subNavHandle: {
-            value: '#subNavHandle'
+        //导航离顶部的距离
+        navTop: {
+            value: null
         },
         /**
          * 默认的首页地址
@@ -75,14 +55,16 @@ KISSY.add("components/sidenav/index", function(S, Brick) {
     };
 
     S.extend(Sidenav, Brick, {
-        initialize: function() {
-            this.sidebar = $(this.get('sidebar'));
+        bindUI: function() {
+            var self = this;
+            var el = this.get('el');
+            this.sidebar = el;
             this.main = $(this.get('inmain'));
             this.allLinks = this.sidebar.all('a');
-            this.nav = $(this.get('nav'));
-            this.subNav = $(this.get('subNav'));
-            this.subNavWrap = $(this.get('subNavWrap'));
-            this.subNavHandle = $(this.get('subNavHandle'));
+            this.nav = el.all('.nav');
+            this.subNav = el.all('.sub-nav');
+            this.subNavWrap = el.all('.sub-nav-wrap');
+            this.subNavHandle = el.all('.subnav-handle');
 
             //这里配置有的页面不是导航点击进来的，
             //可以配置成相应的导航下面
@@ -106,7 +88,7 @@ KISSY.add("components/sidenav/index", function(S, Brick) {
             this.duration = this.get('duration'); //导航动画持续时间，可配置
 
             this.isHandleClick = false; //标识是否点击了扩展收缩按钮
-            this.navTop = this.nav.offset().top; //导航的初始offset.top值
+            self.navTop = this.get('navTop') || self.nav.offset().top; //导航的初始offset.top值
 
             //初始化
             this._bindUI();
@@ -328,7 +310,6 @@ KISSY.add("components/sidenav/index", function(S, Brick) {
             var self = this;
             var st = Math.max(document.body.scrollTop, document.documentElement.scrollTop); //兼容ie
             var isFixed = st > self.navTop; //滚动超过nav的offset top值时，变为fixed
-
             if (isFixed) {
                 self.sidebar.addClass('sidebar-fixed');
 
