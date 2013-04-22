@@ -1,4 +1,4 @@
-KISSY.add("app/views/adzone/my_fav_adzone/index", function(S, View, MM) {
+KISSY.add("app/views/adzone/adzone", function(S, View, MM) {
     return View.extend({
         init : function() {
             //监听url参数
@@ -17,6 +17,9 @@ KISSY.add("app/views/adzone/my_fav_adzone/index", function(S, View, MM) {
                 //读取数据错误
                 me.setViewHTML(msg);
             });
+        },
+        locationChange: function(e) {
+            this.render();
         }
     });
 }, {
