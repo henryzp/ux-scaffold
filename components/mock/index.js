@@ -1,3 +1,13 @@
+/*
+  Mock
+  模拟请求 & 模拟数据
+  作者：墨智
+
+  参考资料：
+  http://www.elijahmanor.com/2013/04/angry-birds-of-javascript-green-bird.html
+  https://github.com/mennovanslooten/mockJSON
+  https://github.com/appendto/jquery-mockjax
+*/
 KISSY.add("components/mock/index", function(S) {
   var Mock = {}, _mocked = [];
   Mock.mockJSON = function(request, template) {
@@ -14,41 +24,6 @@ KISSY.add("components/mock/index", function(S) {
     });
     return Mock;
   };
-
-  // test
-  Mock.mockJSON(/api\/home.json/, {
-    data: {
-      "count": 11,
-      "list|5-10": [{
-        "name": "@MALE_FIRST_NAME @LAST_NAME",
-        "status": "1",
-        "updateTime": "2012-12-12",
-        "beginTime": "2012-04-04",
-        "endTime": "2012-04-10",
-        "auditComments": null,
-        "id|+1": 10000
-      }]
-    },
-    info: {
-      "ok": true,
-      "message": "@MALE_FIRST_NAME @LAST_NAME"
-    }
-  });
-  Mock.mockJSON(/.+.json/, {
-    "data|5-10": [{
-      "married|0-1": true,
-      "name": "@MALE_FIRST_NAME @LAST_NAME",
-      "sons": null,
-      'daughters|0-3': [{
-        "age|0-31": 0,
-        "name": "@FEMALE_FIRST_NAME"
-      }]
-    }],
-    info: {
-      "ok|0-1": true,
-      "message": "@MALE_FIRST_NAME @LAST_NAME"
-    }
-  });
 
   var _original_ajax = KISSY.io;
   KISSY.io = function(options) {
