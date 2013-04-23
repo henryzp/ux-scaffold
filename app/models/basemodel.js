@@ -292,5 +292,5 @@ KISSY.add("app/models/basemodel",function(S, MxModel,IO){
         }
     });
 },{
-    requires:["mxext/model","ajax"]
+    requires:["mxext/model","ajax"].concat(Site.mock ? [ "app/models/mock" ] : [])
 });
