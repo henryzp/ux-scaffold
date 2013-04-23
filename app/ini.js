@@ -62,30 +62,29 @@ KISSY.add("app/ini",function(S){
         //404时显示的view，如果未启用，则404时显示defaultView
         notFoundView:'app/views/404',
         //映射规则，当更复杂时，请考虑下面routes为funciton的配置
-        routes:{
-            '/home': 'app/views/default',
-            '/adzone/adzone': 'app/views/default',
-            '/adzone/my_fav_adzone': 'app/views/default',
-            '/reports/account': 'app/views/default',
-        }
+        // routes:{
+        //     '/home': 'app/views/default',
+        //     '/adzone/adzone': 'app/views/default',
+        //     '/adzone/my_fav_adzone': 'app/views/default',
+        //     '/reports/account': 'app/views/default',
+        // }
         //或者routes配置为function如：
         //routes:function(pathname){
         //  if(pathname=='/home'){
         //      return "app/common/default"
         //  }
         //}
-        // routes: function(pathname){
-        //     debugger;
-        //     /**begin:support sc load app views**/
-        //     if(/^app\//.test(pathname)){
-        //         return pathname;
-        //     }
-        //     /**end**/
-        //     if(!S.isEmptyObject(T.routes)&&!T.routes[pathname]){
-        //         return 'app/views/404';
-        //     }
-        //     return 'app/views/default';
-        // }
+        routes: function(pathname){
+            /**begin:support sc load app views**/
+            if(/^app\//.test(pathname)){
+                return pathname;
+            }
+            /**end**/
+            if(!S.isEmptyObject(T.routes)&&!T.routes[pathname]){
+                return 'app/views/404';
+            }
+            return 'app/views/default';
+        }
     };
 },{
     requires:["node"]

@@ -1,4 +1,4 @@
-KISSY.add("app/views/home", function(S, View, MM) {
+KISSY.add("app/views/home/index", function(S, View, MM) {
     return View.extend({
         init : function() {
             //监听url参数
