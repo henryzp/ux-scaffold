@@ -9,7 +9,13 @@ KISSY.add("app/views/menu", function(S, View, Sidenav, SS) {
             var me = this;
             me.setViewPagelet({
                 //动态数据
-            }, function() {});
+            }, function(pagelet) {
+                var sidenav = pagelet.getBricks('sidenav')[0];
+                // debugger;
+                // sidenav.destroy();
+            });
+
+
 
         }
     });

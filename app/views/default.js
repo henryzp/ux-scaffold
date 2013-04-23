@@ -66,7 +66,6 @@ KISSY.add("app/views/default", function(S, View, VOM, UA, Node) {
             console.log(loc);
             var pathname = loc.pathname;
             var vframe = VOM.getVframe('magix_vf_main');
-            debugger;
             if (vframe) {
                 var pns = pathname.split('/');
                 pns.shift();
