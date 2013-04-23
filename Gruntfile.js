@@ -6,13 +6,8 @@
 'use strict';
 module.exports = function(grunt) {
 
-    var devTasks = ['jshint', 'csslint:lax', 'qunit', 'componentjs'],
-        buildTasks = [
-            'jshint', 'csslint:lax', 'qunit',
-            'clean:before',
-            'uglify', 'cssmin', 'htmlmin', 'viewconcat',
-            'clean:after',
-            'componentjs']; // 'componentjs' // 需要自定义覆盖 uglify 配置，所以放到了最后
+    var dest = 'build/<%= grunt.template.today("yyyymmdd-HH") %>/',
+        destapp = dest + 'app/';
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -27,7 +22,7 @@ module.exports = function(grunt) {
             before: ["build/"],
             after: {
                 expand: true,
-                cwd: 'build/',
+                cwd: destapp,
                 src: ['**/*-min.js', '**/*-min.html']
             }
         },
@@ -41,9 +36,9 @@ module.exports = function(grunt) {
             options: {},
             view: {
                 expand: true,
-                cwd: 'build/app/',
+                cwd: destapp,
                 src: ['**/*.html'],
-                dest: 'build/app/',
+                dest: destapp,
                 ext: '.js'
             }
         },
@@ -55,7 +50,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'app/',
                 src: ['**/*.js', '!**/*-min.js'],
-                dest: 'build/app/',
+                dest: destapp,
                 ext: '.js' // '-min.js'
             },
             libs: {
@@ -86,7 +81,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: 'app/',
                 src: ['**/*.html'], // , '!**/*-min.html'
-                dest: 'build/app/',
+                dest: destapp,
                 ext: '.html'
             }
         },
@@ -119,11 +114,11 @@ module.exports = function(grunt) {
         watch: {
             dev: {
                 files: ['<%= jshint.files %>', 'app/**/*.*', 'test/**/*.*'],
-                tasks: devTasks
+                tasks: ['base-dev']
             },
             build: {
                 files: ['<%= jshint.files %>', 'app/**/*.*'],
-                tasks: buildTasks
+                tasks: ['base-build']
             }
 
         },
@@ -134,6 +129,23 @@ module.exports = function(grunt) {
                     base: '.',
                     host: '0.0.0.0'
                 }
+            }
+        },
+        copy: {
+            build: {
+                files: [{
+                    expand: true,
+                    src: ['assets/**'],
+                    dest: dest,
+                }, {
+                    expand: true,
+                    src: ['components/**'],
+                    dest: dest,
+                }, {
+                    expand: true,
+                    src: ['libs/**'],
+                    dest: dest,
+                }]
             }
         }
     });
@@ -149,14 +161,24 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-csslint');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // tasks
     grunt.loadTasks('tasks');
 
     // Default task. 日常开发
-    grunt.registerTask('default', devTasks.concat('connect', 'watch:dev'));
+    grunt.registerTask('base-dev', ['jshint', 'csslint:lax', 'qunit', 'componentjs']);
+    grunt.registerTask('default', ['base-dev', 'connect', 'watch:dev']);
 
     // Build task 发布
-    grunt.registerTask('build', buildTasks.concat('connect', 'watch:build'));
+    grunt.registerTask('base-build', [
+        'jshint', 'csslint:lax', 'qunit',
+        'clean:before',
+        'uglify', 'cssmin', 'htmlmin', 'viewconcat',
+        'copy',
+        'clean:after',
+        'componentjs' // 'componentjs' // 需要自定义覆盖 uglify 配置，所以放到了最后
+    ]);
+    grunt.registerTask('build', ['base-build', 'connect', 'watch:build']);
 
 };
