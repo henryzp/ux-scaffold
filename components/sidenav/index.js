@@ -27,7 +27,7 @@ KISSY.add("components/sidenav/index", function(S, Brick) {
          * @cfg {String}
          */
         index: {
-            value: '#!/home/'
+            value: '#!/home'
         },
         /**
          * 导航动画持续时间，可配置
@@ -105,19 +105,17 @@ KISSY.add("components/sidenav/index", function(S, Brick) {
          * 模拟queryModel对hash的pathname进行解析
          * @private
          */
-        _getPathname: function() {
+        _getPathname: function(h) {
             var pathname;
-            var pathnameMatch = /^#!(\/.+)\/.*$/.exec(location.hash); //返回pathname目录
-            pathname = pathnameMatch && pathnameMatch[1] || '';
+            var pathnameMatch = /(^#!\/[^\?]+)\??[^\/]*$/.exec(h); //返回pathname目录
+            pathname = pathnameMatch && pathnameMatch[1] || this.index;
             return pathname;
-
         },
 
         //根据pathname来确定sidebar的状态
         _pathname2sidebar: function() {
             var self = this;
-            var pathname = this._getPathname();
-            var h = pathname && ('#!' + pathname + '/') || this.index;
+            var h = this._getPathname(location.hash);
 
             //将map中的地址映射成相应的导航
             S.each(this.pathMap, function(v, k) {
@@ -136,12 +134,12 @@ KISSY.add("components/sidenav/index", function(S, Brick) {
             this.sidebar.all('a').each(function(n){
                 var origin_href = n.attr('href');
                 origin_href = origin_href.replace(/^.*?#/g, '#'); //ie7以下a的href会获取完整地址，做下处理
+                origin_href = self._getPathname(origin_href);
+                // var _href = origin_href.match(/.*\//);
+                // if (!_href) return false;
 
-                var _href = origin_href.match(/.*\//);
-                if (!_href) return false;
-
-                var href = _href[0];
-                if (href.slice(href.indexOf('#')) === h) {
+                // var href = _href[0];
+                if (origin_href.slice(origin_href.indexOf('#')) === h) {
                     self.navclick(n, h);
                     return false;
                 }
@@ -158,22 +156,22 @@ KISSY.add("components/sidenav/index", function(S, Brick) {
         //主导航的点击切换
         navclick: function(t, h, isRecover) {
             var self = this;
-            var pathname = this._getPathname();
-            h = h || (pathname && ('#!' + pathname + '/') || this.index);
+            h = h || this._getPathname(location.hash);
             var isMainNav = false; //是否主菜单点击
             var _href;
 
             this.nav.all('a').each(function(item) {
                 _href = item.attr('href');
                 _href = _href.slice(_href.indexOf('#'));
+                _href = self._getPathname(_href);
                 if (_href === h) {
                     isMainNav = true;
                 }
             });
 
-            if (isRecover) {
-                isMainNav = false;
-            }
+            // if (isRecover) {
+            //     isMainNav = false;
+            // }
 
             if (isMainNav) {
                 self._expandCollapseNav(t);
@@ -184,16 +182,16 @@ KISSY.add("components/sidenav/index", function(S, Brick) {
                 self._expandCollapseNav(_t);
                 self.subNav.all('a').removeClass('on');
 
-                if (isRecover) {
-                    self.subNav.all('a[href="#!/board/list/board.archivestatus=1"]').addClass('on');
-                } else {
+                // if (isRecover) {
+                    // self.subNav.all('a[href="#!/board/list/board.archivestatus=1"]').addClass('on');
+                // } else {
                     self.subNav.all('a').each(function(item) {
                         if (item.attr('href') === h) {
                             item.addClass('on');
                             return false;
                         }
                     });
-                }
+                // }
             }
 
             self.isHandleClick = false;

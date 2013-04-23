@@ -1,4 +1,4 @@
-KISSY.add("app/views/adzone/adzone/index", function(S, View, MM) {
+KISSY.add("app/views/reports/account", function(S, View, MM) {
     return View.extend({
         init : function() {
             //监听url参数
