@@ -84,5 +84,5 @@ KISSY.add("app/views/default", function(S, View, VOM, UA, Node) {
         }
     });
 }, {
-    requires: ['mxext/view', 'magix/vom', 'ua', 'node']
+    requires: ['mxext/view', 'magix/vom', 'ua', 'node', 'components/mock/index']
 });
