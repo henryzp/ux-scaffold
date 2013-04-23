@@ -17,6 +17,11 @@
         <script type="text/javascript" src="libs/kissy-magix-mxext.js"></script>
         <script type="text/javascript">
             KISSY.config({combine:/*S_combine*/false/*S_combine*/});
+            window.Site = {
+                debug: ~location.search.indexOf('debug'),
+                mock: ~location.search.indexOf('mock'),
+                cdn: ''
+            }
             Magix.start({
                 appHome:'app',
                 appCombine:false,
