@@ -16,6 +16,7 @@ KISSY.add("app/views/header", function(S, View, MM) {
             me.manage(request);
         },
         locationChange: function(e) {
+            return;
             if (e.location.pathname == '/home') { //回到首页后重读未读数据
                 this.render();
             } else {

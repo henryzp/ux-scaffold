@@ -1,7 +1,17 @@
 我是home, <br>
+<select name="" id="" mxchange="gopage">
+  <option value="Home_Index" {{#if(type==Home_Index)}} selected {{/if(type==Home_Index)}}>1</option>
+  <option value="Home_Change" {{#if(type==Home_Change)}} selected {{/if(type==Home_Change)}}>2</option>
+</select>
 数据总数：{{count}}
 <ul>
   {{#list}}
   <li>名称：{{name}}， 状态：{{status}}， id: {{id}}</li>
   {{/list}}
 </ul>
+
+
+<div style="padding-top:50px;">
+  这里是子view
+  <vframe id="mx_vf_subView"></vframe>
+</div>

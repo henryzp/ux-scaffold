@@ -1,28 +1,50 @@
-KISSY.add("app/views/home/index", function(S, View, MM) {
+KISSY.add("app/views/home/index", function(S, View, MM, Mustache) {
     return View.extend({
-        init : function() {
+        init : function(e) {
+            console.log(e.type);
             //监听url参数
-            //this.observeLocation(['start', 'end', 'tab']);
+            this.observeLocation(['type']);
         },
         render: function() {
-            var me = this;
-            var request = MM.fetchAll([{
-                name: "Home_Index"
+            var self = this;
+            MM.fetchAll([{
+                name: self.location.params.type || "Home_Index",
+                urlParams: self.location.params
             }], function(data) {
-                me.setViewPagelet({
+                // self.setViewHTML(Mustache.to_html(self.template, {
+                //     count: data.get('count'),
+                //     list: data.get('list'),
+                //     type: self.location.get('type')
+                // }));
+                self.setViewPagelet({
                     count: data.get('count'),
-                    list: data.get('list')
+                    list: data.get('list'),
+                    type: self.location.get('type')
                 });
+                self.ownerVOM.getVframe('mx_vf_subView').mountView('app/views/home/sub', {
+                    data:  data.$attrs
+                });
+
             }, function(msg) {
                 //读取数据错误
-                me.setViewHTML(msg);
+                self.setViewHTML(msg);
             });
-            me.manage(request);
+            // self.manage(request);
         },
-        locationChange: function() {
-            this.render();
+        locationChange: function(e) {
+            this.owner.mountView(this.path, {
+                type: e.location.get('type') //传递给VIEW的数据
+            });
+        },
+        events: {
+            change: {
+                gopage: function(e) {
+                    var v = e.domEvent.target.value;
+                    e.view.navigate('type=' + v);
+                }
+            }
         }
     });
 }, {
-    requires: ["mxext/view", "app/models/modelmanager"]
+    requires: ["mxext/view", "app/models/modelmanager", 'brix/core/mustache']
 });

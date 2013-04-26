@@ -1,0 +1,38 @@
+{
+    "data": {
+        "count": 22,
+        "list": [
+            {
+                "name": "xxxxx",
+                "status": "1",
+                "updateTime": "2012-12-12",
+                "beginTime": "2012-04-04",
+                "endTime": "2012-04-10",
+                "auditComments": null,
+                "id": 10000
+            },
+            {
+                "name": "资质名称2",
+                "status": "4",
+                "updateTime": "2012-12-12",
+                "beginTime": "2012-04-04",
+                "endTime": "2012-04-10",
+                "auditComments": "您被拒绝了",
+                "id": 10001
+            },
+            {
+                "name": "资质名称3",
+                "status": "3",
+                "updateTime": "2012-12-12",
+                "beginTime": "2013-04-04",
+                "endTime": "2013-04-20",
+                "auditComments": null,
+                "id": 10002
+            }
+        ]
+    },
+    "info": {
+        "message": "系统错误",
+        "ok": true
+    }
+}

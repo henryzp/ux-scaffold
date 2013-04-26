@@ -27,6 +27,10 @@ KISSY.add("app/models/modelmanager",function(S,BaseManager,Model){
         {
             name:'Home_Index',
             uri:'home:index'
+        },
+        {
+            name:'Home_Change',
+            uri:'home:change'
         }
 
     ]);

@@ -1,4 +1,4 @@
-KISSY.add("app/views/default", function(S, View, VOM, UA, Node) {
+KISSY.add("app/views/default", function(S, View, VOM, UA, Node, R) {
     var $ = Node.all;
     return View.extend({
         init: function() {
@@ -30,6 +30,7 @@ KISSY.add("app/views/default", function(S, View, VOM, UA, Node) {
             // me.on('childrenCreated', function(e) {
             //     //bar.hide()
             // });
+
         },
         /**
          * 兼容低版本的IE
@@ -84,5 +85,5 @@ KISSY.add("app/views/default", function(S, View, VOM, UA, Node) {
         }
     });
 }, {
-    requires: ['mxext/view', 'magix/vom', 'ua', 'node']
+    requires: ['mxext/view', 'magix/vom', 'ua', 'node', 'magix/router']
 });

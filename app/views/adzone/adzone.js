@@ -1,6 +1,7 @@
-KISSY.add("app/views/adzone/adzone", function(S, View, MM) {
+KISSY.add("app/views/adzone/adzone", function(S, View, MM, R) {
     return View.extend({
         init : function() {
+
             //监听url参数
             //this.observeLocation(['start', 'end', 'tab']);
         },
@@ -23,5 +24,5 @@ KISSY.add("app/views/adzone/adzone", function(S, View, MM) {
         }
     });
 }, {
-    requires: ["mxext/view", "app/models/modelmanager"]
+    requires: ["mxext/view", "app/models/modelmanager", 'magix/router']
 });

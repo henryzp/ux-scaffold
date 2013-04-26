@@ -14,9 +14,6 @@ KISSY.add("app/views/menu", function(S, View, Sidenav, SS) {
                 // debugger;
                 // sidenav.destroy();
             });
-
-
-
         }
     });
 }, {

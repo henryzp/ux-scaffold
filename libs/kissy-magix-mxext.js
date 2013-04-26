@@ -353,7 +353,7 @@ KISSY.add('magix/impl/magix', function(S) {
                 }
                 cfg.appHome = appHome;
                 if(cfg.debug) {
-                    cfg.debug = appHome.indexOf(protocol + '//' + loc.host) == 0;
+                    cfg.debug = appHome.indexOf(protocol + '//' + loc.host) === 0;
                 }
                 if(cfg.debug && Number(S.version) < 1.3) {
                     var reg = new RegExp("(" + appHome + appName + "/.+)-min\\.js(\\?[^?]+)?");
@@ -858,7 +858,7 @@ KISSY.add('magix/magix', function(S, IMagix) {
             var args = arguments;
             var me = this;
             var locals = me.locals;
-            if(args.length == 0) {
+            if(args.length === 0) {
                 return locals;
             } else if(args.length == 1) {
                 if(me.isObject(key)) {
@@ -1776,7 +1776,7 @@ KISSY.add('magix/vframe', function(S, Magix, Event, BaseView) {
         unmountView: function(useAnim, isOutermostView) {
             var me = this;
             //me.owner.suspend();
-            var me = this;
+            // var me = this;
 
             if(me.view) {
                 DestroySubVframes.call(me, useAnim);
@@ -4794,6 +4794,7 @@ KISSY.add('mxext/view', function(S, View, Router, VM) {
          * }
          */
         setViewPagelet: function(data, ready) {
+            // debugger;
             var me = this;
             var sign = me.sign;
             var getPagelet = function(fn) {
