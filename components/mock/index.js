@@ -8,6 +8,10 @@
 ## 模拟数据
 基于一套数据模板机制，简化模拟数据的构造过程。
 
+## 依赖 & 支持
+* 无依赖
+* 目前支持的模块加载器：Node、SeaJS、KISSY
+
 ## API
 * Mock.mock(rurl, template) - 记录数据模板，拦截到 Ajax 请求时生成模拟数据并返回。
 * Mock.mock(template) - 根据数据模板生成模拟数据.
@@ -254,7 +258,7 @@
             return HH(date) + ':' + mm(date) + ':' + ss(date);
         },
         DATETIME: function(format) {
-            return Mock.Date.format(randomDate(), 'yyyy-MM-dd HH:mm:ss')
+            return Mock._data.DATE() + ' ' + Mock._data.TIME();
         },
         LOREM: function() {
             var words = 'lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'.split(' ');
