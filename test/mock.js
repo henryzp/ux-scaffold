@@ -25,9 +25,9 @@ test('mock data', function() {
         "message": "@MALE_FIRST_NAME @LAST_NAME"
       }
     };
-    Mock.mockJSON(/.+.json/, template);
+    Mock.mock(/.+.json/, template);
 
-    var data = Mock.mockJSON.generateFromTemplate(template);
+    var data = Mock.mock(template);
     ok(data.data.length > 0, 'data ok');
 
     start();

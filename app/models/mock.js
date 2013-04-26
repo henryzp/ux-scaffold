@@ -10,7 +10,7 @@
 */
 KISSY.add("app/models/mock", function(S, Mock) {
   
-  Mock.mockJSON(/api\/home.json/, {
+  Mock.mock(/api\/home.json/, {
     data: {
       "count|1-10": 1,
       "list|5-10": [{
@@ -35,7 +35,7 @@ KISSY.add("app/models/mock", function(S, Mock) {
     }
   });
   
-  Mock.mockJSON(/.+.json/, {
+  Mock.mock(/.+.json/, {
     "data|5-10": [{
       "married|0-1": true,
       "name": "@MALE_FIRST_NAME @LAST_NAME",
