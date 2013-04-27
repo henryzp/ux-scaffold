@@ -81,7 +81,7 @@ KISSY.add("app/views/default", function(S, View, VOM, UA, Node, R) {
         },
         locationChange: function(e) {
             this.mountMainFrame();
-            e.toChildViews('magix_vf_menu,magix_vf_header');
+            // e.toChildViews('magix_vf_menu,magix_vf_header');
         }
     });
 }, {

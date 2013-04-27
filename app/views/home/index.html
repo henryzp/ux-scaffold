@@ -1,17 +1,26 @@
-我是home, <br>
-<select name="" id="" mxchange="gopage">
+我是home, <span style="color:red;">这里展示的是常用的列表使用方法</span> <br>
+<select name="" id="" mx-change="gopage<prevent>{id:不是吧}">
   <option value="Home_Index" {{#if(type==Home_Index)}} selected {{/if(type==Home_Index)}}>1</option>
   <option value="Home_Change" {{#if(type==Home_Change)}} selected {{/if(type==Home_Change)}}>2</option>
 </select>
-数据总数：{{count}}
-<ul>
+
+数据总数：<span bx-tmpl="count" bx-datakey="count">{{count}}</span>
+<ul bx-tmpl="list" bx-datakey="list">
   {{#list}}
-  <li>名称：{{name}}， 状态：{{status}}， id: {{id}}</li>
+  <li>名称：{{name}}， 状态：{{status}}， id: {{id}}  {{list_test}}</li>
   {{/list}}
 </ul>
+
+<button type="button" mx-click="post">post子view数据</button>
 
 
 <div style="padding-top:50px;">
   这里是子view
   <vframe id="mx_vf_subView"></vframe>
+</div>
+
+
+<div style="padding-top:50px;">
+  这里是第二个子view
+  <vframe id="mx-vf-subView2" mx-view="app/views/home/sub2"></vframe>
 </div>

@@ -9,7 +9,11 @@
   https://github.com/appendto/jquery-mockjax
 */
 KISSY.add("app/models/mock", function(S, Mock) {
-  
+  //-------------
+  //模拟数据
+  //-----------
+
+  //首页
   Mock.mock(/api\/home.json/, {
     data: {
       "count|1-10": 1,
@@ -34,22 +38,48 @@ KISSY.add("app/models/mock", function(S, Mock) {
       "message": "@MALE_FIRST_NAME @LAST_NAME"
     }
   });
-  
-  Mock.mock(/.+.json/, {
-    "data|5-10": [{
-      "married|0-1": true,
-      "name": "@MALE_FIRST_NAME @LAST_NAME",
-      "sons": null,
-      'daughters|0-3': [{
-        "age|0-31": 0,
-        "name": "@FEMALE_FIRST_NAME"
-      }]
-    }],
+
+  //获取计划
+  Mock.mock(/api\/getPlan.json/, {
+    data: {
+      plan: {
+        "id|1000-9999": 1000,
+        "name": "@MALE_FIRST_NAME @LAST_NAME",
+        "type|1-3": 1,
+        "zone": "b"
+      }
+    },
     info: {
       "ok|0-1": true,
-      "message": "@MALE_FIRST_NAME @LAST_NAME"
+      "message": "获取计划信息失败"
     }
   });
+
+   //创建计划
+  Mock.mock(/api\/create.json/, {
+    data: null,
+    info: {
+      "ok|0-1": true,
+      "message": "创建计划失败"
+    }
+  });
+
+  //其他的接口
+  // Mock.mock(/.+.json/, {
+  //   "data|5-10": [{
+  //     "married|0-1": true,
+  //     "name": "@MALE_FIRST_NAME @LAST_NAME",
+  //     "sons": null,
+  //     'daughters|0-3': [{
+  //       "age|0-31": 0,
+  //       "name": "@FEMALE_FIRST_NAME"
+  //     }]
+  //   }],
+  //   info: {
+  //     "ok|0-1": true,
+  //     "message": "@MALE_FIRST_NAME @LAST_NAME"
+  //   }
+  // });
 
   return Mock;
 }, {

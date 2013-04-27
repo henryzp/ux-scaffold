@@ -1,1 +1,25 @@
-我是展位超市
+<div style="color:red; padding-bottom:20px;">这里展示的是创建计划的使用方法</div>
+{{#plan}}
+<form action="" id="form" method="post">
+  <ul>
+    <li style="padding-bottom:10px;">名称：<input type="text" value="{{name}}" name="title" id=""></li>
+    <li style="padding-bottom:10px;">类型：
+      <select name="type" id="">
+        <option value="1" {{#if(type==1)}} selected {{/if(type==1)}}>1</option>
+        <option value="2" {{#if(type==2)}} selected {{/if(type==2)}}>2</option>
+        <option value="3" {{#if(type==3)}} selected {{/if(type==3)}}>3</option>
+      </select>
+    </li>
+    <li style="padding-bottom:10px;">
+      区域：<input type="radio" name="r" {{#if(zone==a)}} checked {{/if(zone==a)}} value="a" id=""> a
+      <input type="radio" name="r" {{#if(zone==b)}} checked {{/if(zone==b)}} value="b" id=""> b
+    </li>
+    <li style="padding-bottom:10px;">
+      <input type="button" mx-click="submit" value=" 提交 ">
+    </li>
+  </ul>
+</form>
+{{/plan}}
+
+
+

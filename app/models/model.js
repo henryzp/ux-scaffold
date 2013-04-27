@@ -7,6 +7,10 @@ KISSY.add("app/models/model",function(S,BaseModel){
             },
             message:{
                 number:'api/getUnreadNum.json'
+            },
+            plan: {
+                create: 'api/create.json',
+                get: 'api/getPlan.json'
             }
         }
     });

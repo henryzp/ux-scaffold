@@ -31,6 +31,14 @@ KISSY.add("app/models/modelmanager",function(S,BaseManager,Model){
         {
             name:'Home_Change',
             uri:'home:change'
+        },
+        {
+            name: 'Plan_Create',
+            uri: 'plan:create'
+        },
+        {
+            name: 'Plan_Get',
+            uri: 'plan:get'
         }
 
     ]);

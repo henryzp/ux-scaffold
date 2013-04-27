@@ -1,0 +1,14 @@
+{
+    "data": {
+        "plan": {
+            "id": 10000,
+            "name": "计划名称1",
+            "type": "3",
+            "zone": "b"
+        }
+    },
+    "info": {
+        "message": "创建失败",
+        "ok": true
+    }
+}
