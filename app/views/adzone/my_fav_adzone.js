@@ -8,11 +8,8 @@ KISSY.add("app/views/adzone/my_fav_adzone", function(S, View, MM) {
             var me = this;
             var request = MM.fetchAll([{
                 name: "Home_Index"
-            }], function(data) {
-                me.setViewPagelet({
-                    count: data.get('count'),
-                    list: data.get('list')
-                });
+            }], function(MesModel) {
+                me.setViewPagelet(MesModel.$attrs);
             }, function(msg) {
                 //读取数据错误
                 me.setViewHTML(msg);
