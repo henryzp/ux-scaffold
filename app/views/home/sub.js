@@ -8,21 +8,15 @@ KISSY.add("app/views/home/sub", function(S, View, MM) {
         render: function() {
             var self = this;
             self.setViewPagelet(self.MesModel);
-            self.postMessageTo('magix_vf_main', {a:1}); //往其他view传递数据
         },
         receiveMessage: function(data) {
             console.log(data);
         },
         events: {
-            change: {
-                gopage: function(e) {
-                    var v = e.domEvent.target.value;
-                    e.view.navigate('page=' + v);
-                }
-            },
             click: {
                 post: function(e) {
-                    e.view.postMessageTo('magix_vf_main', {d:4});
+                    //往其他view传递数据
+                    e.view.postMessageTo('mx_vf_subView2', 'subview post出来的数据');
                 }
             }
         }

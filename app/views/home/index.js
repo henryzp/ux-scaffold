@@ -5,20 +5,22 @@ KISSY.add("app/views/home/index", function(S, View, MM, Mustache) {
             this.observeLocation(['type']);
             this.on('childrenCreated', function(e) {
                 // debugger;
+                console.log('childrenCreated');
                 // 当前view及子孙view全部加载完毕时
             });
             this.on('childrenAlter', function(e) {
                 // debugger;
+                console.log('childrenAlter');
                 // 当前view及子孙view有变化时
             });
             this.on('created', function(e) {
                 // debugger;
+                console.log('created');
                 // 当前view加载完毕
             });
         },
         render: function(type) {
             type && alert(type); //type可以来自刷新自己时传进来的值
-
             var self = this;
             //MM.fetchAll的返回值交由manage管理，避免风险
             //其他异步的回调函数都要交由manage管理
@@ -36,10 +38,8 @@ KISSY.add("app/views/home/index", function(S, View, MM, Mustache) {
                     type: self.location.get('type')
                 });
                 self.mountView('mx_vf_subView', 'app/views/home/sub', {MesModel : MesModel});
-
-                self.postMessageTo('mx_vf_subView', {b:2});
+                // self.mountView('mx_vf_subView2', 'app/views/home/sub2', {MesModel : MesModel});
             }));
-
 
         },
         locationChange: function(e) {
@@ -69,7 +69,7 @@ KISSY.add("app/views/home/index", function(S, View, MM, Mustache) {
             },
             click: {
                 post: function(e) {
-                    e.view.postMessageTo('mx_vf_subView', {c:3});
+                    e.view.postMessageTo('mx_vf_subView2', 'main-view post出来的数据');
                 }
             }
         }
