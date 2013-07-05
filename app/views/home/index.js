@@ -1,4 +1,4 @@
-KISSY.add("app/views/home/index", function(S, View, MM, Mustache) {
+KISSY.add("app/views/home/index", function(S, View, VOM, MM, Mustache) {
     return View.extend({
         init : function(e) {
             //监听url参数
@@ -20,7 +20,7 @@ KISSY.add("app/views/home/index", function(S, View, MM, Mustache) {
             });
         },
         render: function(type) {
-            type && alert(type); //type可以来自刷新自己时传进来的值
+            type && console.log(type); //type可以来自刷新自己时传进来的值
             var self = this;
             //MM.fetchAll的返回值交由manage管理，避免风险
             //其他异步的回调函数都要交由manage管理
@@ -37,8 +37,8 @@ KISSY.add("app/views/home/index", function(S, View, MM, Mustache) {
                     list: MesModel.get('list'),
                     type: self.location.get('type')
                 });
-                self.mountView('mx_vf_subView', 'app/views/home/sub', {MesModel : MesModel});
-                // self.mountView('mx_vf_subView2', 'app/views/home/sub2', {MesModel : MesModel});
+                //加载子view
+                VOM.get('mx_vf_subView').mountView('app/views/home/sub', {MesModel : MesModel});
             }));
 
         },
@@ -75,5 +75,5 @@ KISSY.add("app/views/home/index", function(S, View, MM, Mustache) {
         }
     });
 }, {
-    requires: ["mxext/view", "app/models/modelmanager", 'brix/core/mustache']
+    requires: ["mxext/view", "magix/vom", "app/models/modelmanager", 'brix/core/mustache']
 });

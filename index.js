@@ -1,8 +1,8 @@
 //启动magix
 KISSY.config({combine:/*S_combine*/false/*S_combine*/});
 window.Site = {
-    debug: ~location.search.indexOf('debug'),
-    mock: ~location.search.indexOf('mock'),
+    debug: ~location.search.indexOf('debug'), //debug模式，可用来判断是否加载本地开发版本JS文件
+    mock: ~location.search.indexOf('mock'), //mock模式，是否启用模拟接口
     cdn: ''
 }
 Magix.start({

@@ -17,5 +17,5 @@ KISSY.add("app/views/menu", function(S, View, Sidenav, SS) {
         }
     });
 }, {
-    requires: ['mxext/view', 'components/sidenav/index.css']
+    requires: ['mxext/view', 'brix/gallery/sidenav/index.css']
 });

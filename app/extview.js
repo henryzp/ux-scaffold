@@ -1,9 +1,9 @@
-KISSY.add("app/extview",function(S,MV){
+KISSY.add("app/extview", function(S, MV) {
 
     var ViewModel = function(config) {
-        ViewModel.superclass.constructor.call(this, config);
-        this.addAttrs(config);
-    };
+            ViewModel.superclass.constructor.call(this, config);
+            this.addAttrs(config);
+        };
 
     S.extend(ViewModel, S.Base, {
         /**
@@ -15,7 +15,7 @@ KISSY.add("app/extview",function(S,MV){
          */
         registerDataKey: function(dataKey) {
             var o = {};
-            for (var i = 0; i < dataKey.length; i++) {
+            for(var i = 0; i < dataKey.length; i++) {
                 o[dataKey[i]] = {};
             }
             this.addAttrs(o);
@@ -25,17 +25,17 @@ KISSY.add("app/extview",function(S,MV){
          * @param {Object} obj 包含方法的对象
          **/
         registerRenderers: function(obj) {
-            var me=this;
+            var me = this;
             var baseSet = me.constructor.superclass.set;
-            for(var group in obj){
-                var groups=obj[group];
-                for(var n in groups){
-                    baseSet.call(me,group+'_'+n,(function(f){
-                        return function(){
-                            return f.call(this,me._view);
+            for(var group in obj) {
+                var groups = obj[group];
+                for(var n in groups) {
+                    baseSet.call(me, group + '_' + n, (function(f) {
+                        return function() {
+                            return f.call(this, me._view);
                         }
-                    }(groups[n])),{
-                        slient:true
+                    }(groups[n])), {
+                        slient: true
                     })
                 }
             }
@@ -46,7 +46,7 @@ KISSY.add("app/extview",function(S,MV){
          */
         toJSON: function() {
             return this.getAttrVals();
-        }//,
+        } //,
         /**
          * 设置key对应的值
          * @param {String|Object} name  字符串或对象
@@ -70,8 +70,8 @@ KISSY.add("app/extview",function(S,MV){
     });
 
     var Pagelet;
-    var WIN=window;
-    S.mix(MV.prototype,{
+    var WIN = window;
+    S.mix(MV.prototype, {
         /**
          * 设置view的pagelet，与brix深度整合
          * @param {Object} data  数据对象
@@ -104,43 +104,47 @@ KISSY.add("app/extview",function(S,MV){
          *     })
          * }
          */
-        setViewPagelet:function(data,ready){
-            var me=this;
-            var sign=me.sign;
-            var getPagelet=function(fn){
-                if(Pagelet){
-                    fn(Pagelet);
-                }else{
-                    S.use('brix/core/pagelet',function(S,P){
-                        fn(Pagelet=P);
-                    });
-                }
-            };
-            var pagelet=me.getManaged('pagelet');
-            if(pagelet){
-                pagelet.ready(function(){
-                    pagelet.setChunkData(data);//
+        setViewPagelet: function(data, ready, config) {
+            var me = this;
+            var sign = me.sign;
+            var getPagelet = function(fn) {
+                    if(Pagelet) {
+                        fn(Pagelet);
+                    } else {
+                        S.use('brix/core/pagelet', function(S, P) {
+                            fn(Pagelet = P);
+                        });
+                    }
+                };
+            var pagelet = me.getManaged('pagelet');
+            if(pagelet) {
+                pagelet.ready(function() {
+                    pagelet.setChunkData(data); //
                 });
-            }else{
-                getPagelet(function(Pglt){
-                    if(sign==me.sign){
-                        S.one('#'+me.id).html('');
+            } else {
+                getPagelet(function(Pglt) {
+                    if(sign == me.sign) {
+                        S.one('#' + me.id).html('');
                         me.beginUpdateHTML();
-                        pagelet=new Pglt({
+                        pagelet = new Pglt({
                             container: '#' + me.id,
                             tmpl: me.wrapMxEvent(me.template),
                             data: me.wrapMustachData(data),
-                            destroyAction:'none'
+                            destroyAction: 'empty',
+                            config: config || {}
                         });
                         me.endUpdateHTML();
-                        me.manage('pagelet',pagelet);
-                        if(ready){
-                            pagelet.on('beforeRefreshTmpl',function(e){
-                                me.unmountZoneViews(e.node[0]);
+                        me.manage('pagelet', pagelet);
+                        if(ready) {
+                            pagelet.on('beforeRefreshTmpl', function(e) {
+                                me.owner.unmountZoneVframes(e.node[0]);
                             });
-                            pagelet.ready(function(){
-                                if(sign==me.sign){
-                                    ready.call(me,pagelet);
+                            pagelet.on('afterRefreshTmpl', function(e) {
+                                me.owner.mountZoneVframes(e.node[0], null, true);
+                            });
+                            pagelet.ready(function() {
+                                if(sign == me.sign) {
+                                    ready.call(me, pagelet);
                                 }
                             });
                         }
@@ -148,13 +152,13 @@ KISSY.add("app/extview",function(S,MV){
                 });
             }
         },
-        wrapMustachData:function(data){
+        wrapMustachData: function(data) {
             var self = this,
                 rr = this.renderer,
                 mcName, wrapperName;
-            if (rr) {
-                for (mcName in rr) {
-                    for (wrapperName in rr[mcName]) {
+            if(rr) {
+                for(mcName in rr) {
+                    for(wrapperName in rr[mcName]) {
                         (function() {
                             var mn = mcName,
                                 wn = wrapperName;
@@ -168,12 +172,12 @@ KISSY.add("app/extview",function(S,MV){
             }
             return data;
         },
-        mxViewCtor:function(){
-            var me=this;
+        mxViewCtor: function() {
+            var me = this;
             me.vm = new ViewModel();
-            me.vm._view=me;
+            me.vm._view = me;
         }
     });
-},{
-    requires:["mxext/view","base"]
+}, {
+    requires: ["mxext/view", "base"]
 });

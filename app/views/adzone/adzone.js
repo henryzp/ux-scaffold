@@ -31,8 +31,9 @@ KISSY.add("app/views/adzone/adzone", function(S, View, MM, R) {
         events: {
             click: {
                 submit: function(e) {
+                    var self = e.view;
                     var params = S.unparam(S.IO.serialize('#form'));
-                    e.view.getManaged('r').saveAll({
+                    self.getManaged('r').saveAll({
                         name: 'Plan_Create',
                         urlParams: params
                     }, function(MesModel, err) {
@@ -40,7 +41,7 @@ KISSY.add("app/views/adzone/adzone", function(S, View, MM, R) {
                             alert(err.msg)
                             return;
                         }
-                        e.view.setViewHTML('创建成功');
+                        self.setViewHTML('创建成功');
                     });
                 }
             }

@@ -5,8 +5,17 @@
  */
 KISSY.add("app/ini",function(S){
     var T = {
-        routes:{
-
+        routes: {
+            'app/views/default': [
+                '/home',
+                '/adzone/adzone',
+                '/adzone/my_fav_adzone',
+                '/reports/account'
+            ]
+            //可以增加第二种view的配置
+            // ,'app/views/default2': [
+            //     '/data/xxxx'
+            // ]
         }
     };
     return {
@@ -49,13 +58,14 @@ KISSY.add("app/ini",function(S){
         //  }
         //}
         routes: function(pathname){
-            /**begin:support sc load app views**/
-            if(/^app\//.test(pathname)){
-                return pathname;
-            }
-            /**end**/
-            console.log(this);
-            if(!S.isEmptyObject(T.routes)&&!T.routes[pathname]){
+            if (!S.isEmptyObject(T.routes)) {
+                var s;
+                S.each(T.routes, function(item, k) {
+                    if (S.inArray(pathname, item)) {
+                        s = k;
+                    }
+                });
+                if (s) return s;
                 return this.notFoundView;
             }
             return this.defaultView;
