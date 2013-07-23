@@ -36,9 +36,57 @@ KISSY.add("app/views/home/index", function(S, View, VOM, MM, Mustache) {
                     count: MesModel.get('count'),
                     list: MesModel.get('list'),
                     type: self.location.get('type')
+                },function(){
+                    KISSY.use("sizzle,switchable", function (S,_,Switchable) {
+                        new Switchable.Carousel('#J_brandList',{
+                            //hasTriggers:false,
+                            prevBtnCls:'prebtn',
+                            nextBtnCls:'nextbtn',
+                            contentCls:'box',
+                            effect : 'scrollx',
+                            //circular:false,
+                            autoplay:'true'
+                        });
+                        var $ = KISSY.all;
+                        $(".sub_menu").each(function(){
+                            //对于5个以上显示左右箭头。
+                            var num = $(".sub_menu_list li",$(this)).length;
+                            if(num<=5){
+                                 $(".prebtn",$(this)).remove();
+                                 $(".nextbtn",$(this)).remove();
+                            }
+                        });
+                        $(".J_title").each(function(){
+                           $(this).on("click",function(){
+                               $(".J_title").removeClass("J_title_click");
+                               var op = $(this).parent();
+                               $sub_menu = $(".sub_menu",op);
+                               $(this).addClass("J_title_click");
+                               $(".sub_menu").hide();
+                               $sub_menu.show();
+                               var len = $(".prebtn",$sub_menu).length;
+                               if(len>0){
+                                   new Switchable.Carousel($sub_menu,{
+                                       hasTriggers:false,
+                                       prevBtnCls:'prebtn',
+                                       nextBtnCls:'nextbtn',
+                                       contentCls:'sub_menu_list',
+                                       effect : 'scrollx',
+                                       steps: 5,
+                                       viewSize: [350]
+                                       //circular:false,
+                                   });
+                               }
+                    }).on("mouseover",function(){
+                            $(this).addClass("J_title_hover");
+                        }).on("mouseout",function(){
+                            $(this).removeClass("J_title_hover");
+                        });
+                });
+                    });
                 });
                 //加载子view
-                VOM.get('mx_vf_subView').mountView('app/views/home/sub', {MesModel : MesModel});
+                //VOM.get('mx_vf_subView').mountView('app/views/home/sub', {MesModel : MesModel});
             }));
 
         },

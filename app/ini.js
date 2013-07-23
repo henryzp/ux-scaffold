@@ -8,14 +8,22 @@ KISSY.add("app/ini",function(S){
         routes: {
             'app/views/default': [
                 '/home',
-                '/adzone/adzone',
-                '/adzone/my_fav_adzone',
-                '/reports/account'
+                '/search',
+                '/lecturers',
+                '/lecturers/detail',
+                '/lecturers/cart',
+                '/teacher',
+                '/teacher/detail',
+                '/online',
+                '/profile',
+                '/selftutorial',
+                '/selftutorial/detail',
+                '/celebrity'
             ]
             //可以增加第二种view的配置
-            // ,'app/views/default2': [
+            //,'app/views/default2': [
             //     '/data/xxxx'
-            // ]
+            //]
         }
     };
     return {

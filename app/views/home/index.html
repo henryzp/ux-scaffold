@@ -1,26 +1,334 @@
-我是home, <span style="color:red;">这里展示的是常用的列表使用方法</span> <br>
-<select name="" id="" mx-change="gopage<prevent>{id:不是吧}">
-  <option value="Home_Index" {{#if(type==Home_Index)}} selected {{/if(type==Home_Index)}}>1</option>
-  <option value="Home_Change" {{#if(type==Home_Change)}} selected {{/if(type==Home_Change)}}>2</option>
-</select>
-
-数据总数：<span bx-tmpl="count" bx-datakey="count">{{count}}</span>
-<ul bx-tmpl="list" bx-datakey="list">
-  {{#list}}
-  <li>名称：{{name}}， 状态：{{status}}， id: {{id}}  {{list_test}}</li>
-  {{/list}}
-</ul>
-
-<button type="button" mx-click="post">post子view数据</button>
-
-
-<div style="padding-top:50px;">
-  这里是子view
-  <vframe id="mx_vf_subView"></vframe>
+<div id="J_brandList" class="brandlist layout">
+    <ul class="box clearfix">
+        <li>
+            <a href="#">
+              <img src="../../../assets/images/brand/img1.png" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="../../../assets/images/brand/img2.png" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="../../../assets/images/brand/img3.png" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="../../../assets/images/brand/img4.png" alt=""/>
+            </a>
+        </li>
+    </ul>
+    <a class="prebtn" href="javascript:;">上一页</a>
+    <a class="nextbtn" href="javascript:;">下一页</a>
 </div>
-
-
-<div style="padding-top:50px;">
-  这里是第二个子view
-  <vframe id="mx_vf_subView2" mx-view="app/views/home/sub2"></vframe>
+<div class="knowledge_system layout">
+    <div class="item1 item">
+        <div class="J_title">
+            <span class="num">01</span>直通车原理/规则/操作
+        </div>
+        <div class="sub_menu clearfix">
+            <a class="prebtn" href="javascript:;">上一页</a>
+            <div class="menu_contain">
+                <ul class="sub_menu_list clearfix">
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">直通车活动</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">直通车活动</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">直通车活动</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="nextbtn" href="javascript:;">下一页</a>
+        </div>
+    </div>
+    <div class="item2 item">
+        <div class="J_title">
+            <span class="num">02</span>直通车优化技巧
+        </div>
+        <div class="sub_menu clearfix">
+            <a class="prebtn" href="javascript:;">上一页</a>
+            <div class="menu_contain">
+                <ul class="sub_menu_list clearfix">
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="nextbtn" href="javascript:;">下一页</a>
+        </div>
+    </div>
+    <div class="item3 item">
+        <div class="J_title">
+            <span class="num">03</span>转化提升技巧
+        </div>
+        <div class="sub_menu clearfix">
+            <a class="prebtn" href="javascript:;">上一页</a>
+            <div class="menu_contain">
+                <ul class="sub_menu_list clearfix">
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">直通车活动</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">直通车活动</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">直通车活动</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="nextbtn" href="javascript:;">下一页</a>
+        </div>
+    </div>
+    <div class="item4 item">
+        <div class="J_title">
+            <span class="num">04</span>直通车新产品功能
+        </div>
+        <div class="sub_menu clearfix">
+            <a class="prebtn" href="javascript:;">上一页</a>
+            <div class="menu_contain">
+                <ul class="sub_menu_list clearfix">
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="nextbtn" href="javascript:;">下一页</a>
+        </div>
+    </div>
+    <div class="item5 item">
+        <div class="J_title">
+            <span class="num">05</span>店铺经营策略
+        </div>
+        <div class="sub_menu clearfix">
+            <a class="prebtn" href="javascript:;">上一页</a>
+            <div class="menu_contain">
+                <ul class="sub_menu_list clearfix">
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="nextbtn" href="javascript:;">下一页</a>
+        </div>
+    </div>
+    <div class="item6 item">
+        <div class="J_title">
+            <span class="num">06</span>其他流量渠道
+        </div>
+        <div class="sub_menu clearfix">
+            <a class="prebtn" href="javascript:;">上一页</a>
+            <div class="menu_contain">
+                <ul class="sub_menu_list clearfix">
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">直通车活动</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">直通车活动</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">直通车活动</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                    <li>
+                        <a class="text-overflow" href="#">店铺推广</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="nextbtn" href="javascript:;">下一页</a>
+        </div>
+    </div>
+</div>
+<div class="infolist layout clearfix">
+    <div class="news_info">
+        <h3>最新资讯</h3>
+        <ul class="list">
+            <li>
+                <a class="info_text text-overflow" title="" href="#">
+                    【经典专题】买家行为分析研究报告
+                </a>
+                <span class="time">6月7号</span>
+            </li>
+            <li>
+                <a class="info_text text-overflow" title="" href="#">
+                    【申明】中小卖家"引流"必修课！
+                </a>
+                <span class="time">12月20号</span>
+            </li>
+            <li>
+                <a class="info_text text-overflow" title="" href="#">
+                    【经典专题】买家来了，您的转化率怎能可能这样呢这样呢这样呢您的转化率怎能可能这样呢这样呢这样呢
+                </a>
+                <span class="time">6月7号</span>
+            </li>
+            <li>
+                <a class="info_text text-overflow" title="" href="#">
+                    【经典专题】涵盖后台操作及规则更新
+                </a>
+                <span class="time">6月7号</span>
+            </li>
+            <li>
+                <a class="info_text text-overflow" title="" href="#">
+                    【词表】直通车店铺推广低深度词表铺推深
+                </a>
+                <span class="time">6月7号</span>
+            </li>
+        </ul>
+    </div>
+    <div class="train_info">
+        <h3>讲师授课</h3>
+        <ul class="list">
+            <li>
+                <i class="icon icon_1"></i>
+                <a class="info_text text-overflow" href="#">
+                    买家行为分析研究
+                </a>
+                <span class="status status_over">已结束</span>
+            </li>
+            <li>
+                <i class="icon icon_2"></i>
+                <a class="info_text text-overflow" href="#">
+                    卖家"引流"必修课！
+                </a>
+                <span class="status status_on">进行中</span>
+            </li>
+            <li>
+                <i class="icon icon_3"></i>
+                <a class="info_text text-overflow" href="#">
+                    快速提升转化
+                </a>
+                <span class="status status_start">报名中</span>
+            </li>
+            <li>
+                <i class="icon icon_4"></i>
+                <a class="info_text text-overflow" href="#">
+                    后台操作及规则更新规则更新规则更新规则更新规则更新规则更新规则更新
+                </a>
+                <span class="status status_start">报名中</span>
+            </li>
+            <li>
+                <i class="icon icon_5"></i>
+                <a class="info_text text-overflow" href="#">
+                    直通车店铺推广
+                </a>
+                <span class="status status_start">报名中</span>
+            </li>
+        </ul>
+    </div>
+    <div class="cart_info">
+        <h3>车友会</h3>
+        <ul class="list">
+            <li>
+                <a href="#">
+                    5月1日【北京】买家行为分析研究规则更新
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    6月3日【上海】卖家"引流"必修课！
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    6月14日【天津】快速提升转化
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    5月1日【北京】直通车店铺推广低深度词表铺
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    6月3日【上海】卖家"引流"必修课！
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="friendship layout">
+    <ul class="list clearfix">
+        <li>
+            <a href="#">
+                <img src="../../../assets/images/friendship/img1.png" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="../../../assets/images/friendship/img2.png" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="../../../assets/images/friendship/img3.png" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="../../../assets/images/friendship/img4.png" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="../../../assets/images/friendship/img5.png" alt=""/>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="../../../assets/images/friendship/img6.png" alt=""/>
+            </a>
+        </li>
+    </ul>
 </div>

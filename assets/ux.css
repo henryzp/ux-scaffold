@@ -1,6 +1,9 @@
 
 a {
-  color: #777;
+  color: #666;
+}
+h2,h3{
+    color: #666;
 }
 /*首页进度条样式，未确定是否保留*/
 .app_progress_bar {
@@ -59,50 +62,1555 @@ a {
   background: url(http://img02.taobaocdn.com/tps/i2/T19ZHDXf4fXXc.LCDe-40-18.gif) no-repeat;
 }
 
-.header {
-  /*background: #3a7bed;*/
-  min-width: 960px;
-  height: 126px;
-  /*line-height: 126px;*/
-  overflow: hidden;
+.layout{
+    width: 990px;
+    margin: 0 auto;
+}
+.noborder{border:none !important;}
+img{vertical-align: top;}
+.mt5{margin-top: 5px;}
+.mt10{margin-top: 10px;}
+.mt15{margin-top: 15px;}
+.mt20{margin-top: 20px;}
+.mt30{margin-top:30px}
+
+.inmain{
+    min-height: 350px;
+    padding: 1px;
 }
 
-.header .logo {
-  font-size: 22px;
-  line-height: 34px;
-  color: black;
-  margin-left: 15px;
-  text-decoration: none;
+.header .top_menu{
+    height: 32px;
+    background-color: #dfdfdf;
+    background-image: -moz-linear-gradient(top, #e1e1e1, #dfdfdf);
+    background-image: -ms-linear-gradient(top, #e1e1e1, #dfdfdf);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e1e1e1), to(#dfdfdf));
+    background-image: -webkit-linear-gradient(top, #e1e1e1, #dfdfdf);
+    background-image: -o-linear-gradient(top, #e1e1e1, #dfdfdf);
+    background-image: linear-gradient(top, #e1e1e1, #dfdfdf);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e1e1e1', endColorstr='#dfdfdf');
 }
-.header .logo .iconfont {
-  font-size: 28px;
+.top_menu .login_info{
+    float: left;display: inline;
+    line-height: 32px;
 }
-.header .header-right {
-  float: right;
-  padding-right: 10px;
-  color: #fff;
+.top_menu .unlogin{
+    margin-left: 6px;
 }
-.header .header-right a {
-  margin-left: 15px;
-  /*color: #333;*/
-  text-decoration: none;
+.top_menu .unlogin a{
+    padding: 0 5px;
+    border-right: #bebebe solid 1px;
+}
+.searchbox{
+    float: right;
+    width: 208px;height: 22px;
+    border: #cacaca solid 1px;
+    margin-top: 4px;
+    background: #fff;
+    position: relative;
+}
+.searchbox input{
+    border:none;
+    border-right: #e6e6e6 solid 1px;
+    height: 18px;
+    margin:2px 0 0 2px;
+    width: 176px;
+}
+.searchbox button{
+    border:none;
+    background: url("images/magnifier.png") no-repeat;
+    width: 18px;height: 17px;
+    position: absolute;
+    text-indent: -999em;
+    right: 4px;top:2px;
+}
+.nav_contain{
+    height: 78px;
+    background: #f8f8f8;
+}
+.nav_contain .logo{
+    float: left;
+}
+.nav_contain .logo img{
+    vertical-align: top;
+}
+.nav_contain .nav{
+    float: right;display: inline;
+    margin-right: 20px;
+}
+.nav_contain .nav li{
+    float: left;display: inline;
+    margin: 30px 0 0 40px;
+    font:bold 14px "微软雅黑";
+}
+.nav_contain .nav li a:hover,.nav_contain .nav li a.current{
+    color: #f2843e;
+}
+.main{
+    background: url("images/main_bg.png") center top repeat-y;
+}
+.brandlist{
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+}
+.prebtn,.nextbtn{
+    background: url("images/arrow.png") 999px 0 no-repeat;
+}
+.brandlist .prebtn,.brandlist .nextbtn{
+    position: absolute;
+    top: 132px;
+    width: 25px;
+    height: 57px;
+    text-indent: -999em;
+}
+.brandlist .prebtn{
+    background-position: 0 0;
+    left: 0;
+}
+.brandlist .nextbtn{
+    background-position: -27px 0;
+    right: 0;
+}
+.brandlist .ks-switchable-nav{
+    position: absolute;
+    width: 100%;
+    left:0;
+    bottom:10px;
+    text-align: center;
+}
+.brandlist .ks-switchable-nav li{
+    width: 10px;height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #9b9b9b;
+    display: inline-block;
+    *display:inline;
+    *zoom:1;
+    font-size: 0;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.brandlist .ks-switchable-nav li.ks-active{
+    background: #f2843e;
+}
+.knowledge_system{
+    margin-top: 35px;
+    background: url("images/knowledge_bg.png") 47px -10px no-repeat;
+    height: 333px;
+    position: relative;
+}
+.knowledge_system .item{
+    position: absolute;
+    font: normal 18px "微软雅黑";
+    color: #8c4a35;
+}
+.knowledge_system .J_title{
+    cursor: pointer;
+}
+.knowledge_system .J_title_hover,.knowledge_system .J_title_click{
+    color: #f2843e;
+}
+.knowledge_system .item .num{
+    font:normal 30px "Arial";
+    vertical-align: -3px;
+    margin-right: 5px;
+}
+.knowledge_system .item1{
+    left:63px;
+    top:22px;
+}
+.knowledge_system .item2{
+    left:24px;
+    top:129px;
+}
+.knowledge_system .item3{
+    left:124px;
+    top:230px;
+}
+.knowledge_system .item4{
+    left:736px;
+    top:25px;
+}
+.knowledge_system .item5{
+    left:821px;
+    top:133px;
+}
+.knowledge_system .item6{
+    left:747px;
+    top:234px;
+}
+.knowledge_system .sub_menu{
+    margin-top: 4px;
+    position: relative;
+    display: none;
+}
+.knowledge_system .sub_menu li{
+    background: url("images/sub_menu_bg.png") no-repeat;
+    width: 62px;height: 62px;
+    font-size: 12px;
+    float: left;margin-right: 10px;
+    text-align: center;
+    line-height: 62px;
+}
+.knowledge_system .sub_menu .menu_contain{
+    position:relative;
+    width: 350px;
+    height: 62px;
+    overflow: hidden;
+    float: left; display: inline;
+    margin-left: 5px;
+}
+.knowledge_system .sub_menu .sub_menu_list{
+    width: 9999px;
+}
+.knowledge_system .sub_menu .sub_menu_list a{
+    display: inline-block;
+    width: 48px;
+}
+.knowledge_system .sub_menu .prebtn,.knowledge_system .sub_menu .nextbtn{
+    width: 10px;height: 18px;
+    text-indent: -999em;
+    margin-top: 20px;
+}
+.knowledge_system .sub_menu .prebtn{
+    float: left;
+    background-position: 0 -64px;
+}
+.knowledge_system .sub_menu .nextbtn{
+    float: left;display: inline;
+    margin-left: 5px;
+    background-position: -16px -64px;
+}
+.knowledge_system .item1 .sub_menu{
+     margin-left: -55px;
+}
+.knowledge_system .item2 .sub_menu{
+    margin-left: -15px;
+}
+.knowledge_system .item3 .sub_menu{
+    margin-left: -80px;
+}
+.knowledge_system .item4 .sub_menu{
+    margin-left: -126px;
+}
+.knowledge_system .item5 .sub_menu{
+    margin-left: -220px;
+}
+.knowledge_system .item6 .sub_menu{
+    margin-left: -148px;
+}
+.infolist{
+    margin-top: 25px;
+}
+.infolist h3{
+    font:normal 18px "微软雅黑";
+    color: #f2843e;
+    margin-bottom: 10px;
+}
+.infolist .info_text{
+    float: left;
+    display: inline;
+}
+.infolist .news_info .info_text{
+    width: 228px;
+}
+.infolist .train_info .info_text{
+    width: 155px;
+}
+.infolist .time{
+    float: right;
+    color: #b2b2b2;
+}
+.infolist .status{
+    float: right;
+    width: 44px;height: 16px;line-height: 16px;
+    text-align: center;
+    color: #fff;
+}
+.infolist .status_over{
+    background: #9b9b9b;
+}
+.infolist .status_on{
+    background: #f2843e;
+}
+.infolist .status_start{
+    background: #8c4a35;
+}
+.infolist li{
+    zoom:1;
+    height: 20px;
+    margin-bottom: 5px;
+}
+.infolist .icon{
+    float: left;display: inline;
+    margin-right: 4px;
+    width: 45px;
+    height: 20px;
+    background: url("images/icon.png") 999em 0 no-repeat;
+}
+.infolist .icon_1{
+    background-position: 0 0;
+}
+.infolist .icon_2{
+    background-position: 0 -23px;
+}
+.infolist .icon_3{
+    background-position: 0 -47px;
+}
+.infolist .icon_4{
+    background-position: 0 -70px;
+}
+.infolist .icon_5{
+    background-position: 0 -93px;
+}
+.infolist li:after{
+    content:"";
+    display: table;
+    clear: both;
+}
+.infolist .news_info,.infolist .train_info,.infolist .cart_info{
+    float: left; display: inline;
+}
+.infolist .news_info{
+    margin-left: 26px;
+    width: 290px;
+}
+.infolist .train_info{
+    margin-left: 68px;
+    width: 256px;
+}
+.infolist .cart_info{
+    margin-left: 78px;
+    width: 268px;
+}
+.friendship{
+    margin-top: 45px;
+}
+.friendship .list{
+    position: relative;
+    margin: 0  -36px 0 10px;
+}
+.friendship .list li{
+    width: 132px;height: 48px;
+    float: left;display: inline;
+    margin-right: 36px;
+}
+/* searchpage */
+.search_contain{
+    padding: 40px 0 0 18px;
+}
+.search_contain .search_tab li{
+    float: left;
+    font-size: 24px;
+    color: #999;
+}
+.search_contain .search_tab li.current{
+    color: #666;
+}
+.search_contain .search_tab .separated{
+    display: inline-block;
+    width: 1px;height: 15px;
+    margin: 0 15px 0;
+    background: #999;
+}
+.search_contain .search_con,.into_city .search_con{
+    margin-top: 15px;
+}
+.search_contain .search_con input,.into_city .search_con input{
+    float: left;
+    width: 833px;height: 32px;
+	padding-left: 5px;
+    background: #fff url("images/magnifier.png") 810px 8px no-repeat;
+    border: #f3843e solid 3px;
+}
+.search_contain .search_con button,.into_city .search_con button{
+    border:none;
+    float: left;width: 102px;height: 38px;line-height: 36px;
+    text-align: center;
+    margin-left: 12px;
+    font: normal 16px "微软雅黑";
+    color: #fff;
+    background-color: #f16e33;
+    background-image: -moz-linear-gradient(top, #f3843e, #f16e33);
+    background-image: -ms-linear-gradient(top, #f3843e, #f16e33);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f3843e), to(#f16e33));
+    background-image: -webkit-linear-gradient(top, #f3843e, #f16e33);
+    background-image: -o-linear-gradient(top, #f3843e, #f16e33);
+    background-image: linear-gradient(top, #f3843e, #f16e33);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3843e', endColorstr='#f16e33');
+}
+.search_contain .search_result{
+    margin-top: 27px;
+}
+.search_contain .search_result li{
+    margin-bottom: 20px;
+}
+.search_contain .search_result .tit{
+    font-size: 16px;
+    color: #e38549;
+    margin-bottom: 10px;
+}
+/* sign_up_detail page */
+.sign_up_detail{
+    margin-top: 40px;
+    padding: 21px 26px 32px;
+    background: #fff;
+}
+.sign_up_detail h2{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.sign_up_detail .detail_info{
+    color: #999;
+}
+.sign_up_detail .detail_info strong{
+    color: #f16e33;
+}
+.sign_up_detail .detail_info p{
+    margin-bottom: 6px ;
+}
+.sign_up_detail .course_list{
+    margin-top: 25px;
+}
+.sign_up_detail .course_list th,.sign_up_detail .course_list td{
+    padding: 6px 0;
+    text-align: left;
+}
+.sign_up_detail .train_info{
+    margin-top: 20px;
+}
+.sign_up_detail .train_info h3{
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+.sign_up_detail .train_info p{
+    line-height: 2;
+}
+.sign_up_detail .view_btn a{
+    display: block;text-indent: -999em;
+    margin: 55px auto 0;
+    background: url("images/view_btn.png") no-repeat;
+    width: 160px;height: 44px;
+}
+/* course_contain page */
+.course_contain{
+    margin-top: 40px;
+}
+.course_contain .course_category ul{
+    margin-right: -65px;
+}
+.course_contain .course_category li{
+    float: left;display: inline;
+    margin-right: 65px;
+    width: 286px;
+}
+.course_contain .cate_info h3{
+	margin: 5px 0;
+	font-size: 16px;
+	color: #333;
+}
+.course_contain .cate_info p{
+	width: 230px;
+	color: #999;
+	line-height: 1.8;
+}
+.course_contain .course_tab{
+	margin-top: 30px;
+	height:30px;
+}
+.course_contain .course_tab .tab_ul{
+	float:left;
+}
+.course_contain .course_tab .tab_ul li{
+	float: left;display: inline;
+	height: 30px;line-height: 30px;
+	font-size: 14px;
+	margin-right: 15px;
+}
+.course_contain .course_tab .tab_ul li.current{
+	color: #f3843e;
+}
+.course_contain .course_tab .view_tutorials{
+	float: right;
+	width: 124px;height: 30px;
+	line-height: 30px;
+	background: #f3843e;
+	text-align: center;
+	color: #fff;
+}
+.course_contain .course_detail_table{
+	margin-top: 15px;
+}
+.course_contain .course_detail_table th,.course_contain .course_detail_table td{
+	border: #d5d5d5 solid 1px;
+	text-align: center;
+}
+.course_contain .course_detail_table th{
+	padding: 24px 0 12px;
+}
+.course_contain .course_detail_table td{
+	padding: 5px 0 10px; 
+}
+.course_contain .course_detail_table .gray{
+	background:#f2f2f2;
+	background:rgba(242,242,242,0.6);
+}
+.course_contain .course_detail{
+	position: relative;
+}
+.course_contain .course_detail .cate{
+	text-align:right;
+	margin-right: 10px;
+	color:#999;
+}
+.course_contain .course_detail .tit{
+	margin-top: 10px;
+	text-align:center;
+	padding: 0 15px;
+}
+.course_contain .course_detail .status{
+	margin-top: 5px;
+	color: #999;
+}
+.course_contain .course_detail .status .cancel{
+	color: #8c4a35
+}
+.course_contain .course_detail .status .link{
+	color: #f3843e;
+}
+/* 课程简介浮层 */
+.course_contain .intro_pop{
+	position: relative;
+	margin-top: 10px;
+	width: 226px;
+	padding: 5px 10px;
+	border: #cacaca solid 1px;
+	background: #fff;
+	color: #cacaca;
+}
+.course_contain .intro_pop .arrow{
+	position:absolute;
+	background:url("images/arrow.png") -32px -64px no-repeat;
+	width:22px;
+	height:12px;
+	left: 60px;
+	bottom: -12px;
+}
+.course_contain .success_pop{
+	margin-top: 30px;
+	width: 433px;
+	padding-left: 17px;
+	border: #c6c6c6 solid 1px;
+	font-size: 14px;
+	height: 40px;line-height: 40px;
+	color: #c6c6c6;
+	background: #fff;
+	box-shadow: 0 0 10px #c7c7c7; 
+	position: relative;
+}
+.course_contain .success_pop .close_btn{
+	position: absolute;
+	right: 10px;
+	top: 0px;
+	font-size: 26px;
+	color: #9e9e9e;
+}
+.course_contain .success_pop .close_btn:hover{
+	text-decoration: none;
+}
+/* cart_contain page */
+.cart_contain{
+	margin-top: 40px;
+}
+.cart_contain .cart_city_info .map{
+	float:left;display:inline;
+	margin-left:20px;
+}
+.cart_contain .cart_city_info .new_info{
+	float:left;display:inline;
+	margin-left:22px;
+}
+.cart_contain .cart_city_info .new_info h3{
+	font: normal 24px "微软雅黑";
+	margin-bottom: 15px;
+	color: #666;
+}
+.cart_contain .cart_city_info .new_info .list li{
+	margin-bottom: 24px;
+}
+.cart_contain .cart_city_info  .new_info .list .basicinfo{
+	color: #999;
+	margin-bottom: 5px;
+}
+.cart_contain .into_city h3,.cart_contain .city_module h3{
+	color: #666;
+	font-size: 24px;
+	margin-left:20px;
+}
+.cart_contain .into_city .search_con{
+	margin-left: 30px;
+}
+.cart_contain .into_city .search_con input{
+	background-position: 432px 5px;
+	width: 457px;
+	padding-left: 5px;
+	height: 25px;
+}
+.cart_contain .into_city .search_con button{
+	height: 30px;line-height:30px;
+}
+.cart_contain .city_module{
+	margin-top: 35px;
+}
+.cart_contain .city_module .list{
+	margin: 16px 0 0 13px;; 
+}
+.cart_contain .city_module .list li{
+	float:left;display: inline;
+	margin-left: 18px;
+}
+.cart_contain .city_module .list .tit{
+	font-size:16px;
+	margin: 10px 0 7px 5px;
+	color:#333;
+}
+.cart_contain .city_module .list .info{
+	color:#999;
+	margin-left: 5px;
+}
+.cart_contain .city_module .list .info p{
+	margin-bottom: 3px;
+}
+/* Teacher page */
+.teacher_contain{
+
+}
+.teacher_contain .area{
+    float: left;display: inline;
+    margin-left:30px;
+}
+.teacher_contain .area h3{
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+.teacher_contain .arealist li{
+    margin: 10px 0 0 10px;
+    font-size: 14px;
+}
+.teacher_contain .arealist li .current{
+    color: #f3843e;
+}
+.teacher_contain .teacher_box{
+    width: 760px;
+    padding:10px 0 0 10px;
+    float: right;display: inline;
+    background: #fff;
+    min-height: 500px;
+}
+.teacher_contain .teacher_grade{
+    font-size: 14px;
+    color: #986d5f;
+}
+.teacher_contain .level{
+    color:#986d5f;
+    display: inline-block;
+    width: 68px;height: 18px;line-height: 18px;
+    text-align: center;
+    font-size: 12px;
+    background: #fff9cd;
+}
+.teacher_contain .teacher_grade .level{
+    margin-left: 5px;
+}
+.teacher_contain .teacher_list{
+   margin-top: 18px;
+}
+.teacher_contain .teacher_list li{
+    width: 746px;height: 130px;
+    margin-bottom: 40px;
+    position: relative;
+}
+.teacher_contain .teacher_list .imgpic{
+    float: left;
+}
+.teacher_contain .teacher_list .teacher_info{
+    float: left;display: inline;
+    margin-left: 24px;
+    with: 478px;
+    color: #999;
+}
+.teacher_contain .teacher_info .name{
+    font:normal 16px "微软雅黑";
+    color: #555;
+}
+.teacher_contain .teacher_info .level{
+    margin-left: 6px;
+}
+.teacher_contain .teacher_info .spec label{
+    color: #555;
+}
+.teacher_contain .teacher_list .view_btn{
+    float: right;display: inline;
+    margin: 33px 6px 0 0;
+    width: 76px;height: 30px;line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background: #f3843e;
+}
+.teacher_contain .teacher_list .zan{
+    position: absolute;
+    bottom: 3px;
+    right: 30px;
+    color: #999;
+}
+.teacher_contain .love_icon{
+    display: inline-block;
+    background: url("images/arrow.png") -31px -83px no-repeat;
+    width: 17px;
+    height: 15px;
+    vertical-align: -2px;
+    margin-right: 4px;
+}
+.teacher_contain .bread_nav,.tutorial_contain .bread_nav{
+    font-size: 14px;
+    margin-left: 15px;
+}
+.teacher_contain .teacher_detail{
+    margin: 10px 0 0 15px;
+}
+.teacher_contain .teacher_detail .imgpic{
+    float: left;
+}
+.teacher_contain .teacher_detail .teacher_info{
+    float: left;display: inline;
+    margin-left: 25px;
+    color: #999;
+}
+.teacher_contain .teacher_detail .sina_icon{
+    background: url("images/arrow.png") 0 -86px no-repeat;
+    display: inline-block;
+    width: 16px;height: 16px;
+    margin-right: 3px;
+    vertical-align: -2px;
+}
+.teacher_contain .teacher_detail .weibo,.teacher_contain .teacher_detail .weibo a{
+    color: #5f5f5f;
+}
+.teacher_contain .teacher_detail .like{
+    margin-top: 25px;
+    font-size: 14px;
+}
+.teacher_contain .teacher_detail .like a{
+    color: #f3843e;
+}
+.teacher_contain .teach_record{
+    margin-top: 30px;
+}
+.teacher_contain .teach_record h3{
+    font: normal 22px "微软雅黑";
+    margin-bottom: 10px;
+}
+.teacher_contain .record_list{
+    position: relative;
+    margin-right: -80px;
+}
+.teacher_contain .record_list li{
+    float:left;display: inline;
+    width: 454px;
+    position: relative;
+    margin: 0 80px 30px 0;
+}
+.teacher_contain .record_list .tit{
+    color: #e38549;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.teacher_contain .record_list .intro{
+    margin-left: 8px;
+}
+.teacher_contain .record_list .link_btn{
+    position: absolute;
+    right:0;
+    top:10px;
+    width: 76px;
+    height: 30px;line-height: 30px;
+    background: #f28e4f;
+    color: #fff;
+    text-align: center;
+}
+.teacher_contain .question_box .tab_nav{
+    margin-left: 10px;
+}
+.teacher_contain .question_box .tab_nav li{
+    float: left;
+    font-size: 16px;
+    color: #999;
+}
+.teacher_contain .question_box .tab_nav li.current{
+    color: #333;
+}
+.teacher_contain .question_box .tab_nav .separated{
+    display: inline-block;
+    width: 1px;height: 15px;
+    margin: 6px 12px 0;
+    background: #999;
+}
+.teacher_contain .ask_layer{
+    margin-top: 15px;
+}
+.teacher_contain .ask_layer .fl{
+    float: left;
+    height: 84px;
+    position: relative;
+    width: 874px;
+}
+.teacher_contain .ask_layer textarea {
+    border: 1px solid #DCDCDC;
+    height: 84px;
+    overflow: auto;
+    resize: none;
+    width: 100%;
+}
+.teacher_contain .ask_layer .ask_btn {
+    background: none repeat scroll 0 0 #F3843E;
+    border: medium none;
+    color: #FFFFFF;
+    display: inline;
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    margin: 20px 0 0 20px;
+    width: 96px;
+}
+.teacher_contain .ask_list{
+    background: #fff;
+    padding:1px 16px 1px 10px;
+    margin-top: 20px;
+}
+.teacher_contain .ask_list .ask_info{
+    margin-top: 0;
+    width: 916px;
+    position: relative;
+}
+.teacher_contain .ask_list .name{
+    color: #f28e4f;
+    margin: 0 0 10px 13px;
+}
+.teacher_contain .ask_list .ask_info .time{
+    position: absolute;
+    right: 0;
+    top: 0px;
+}
+.teacher_contain .ask_list .answer_con .fr{
+    width: 840px;
+}
+/* online_contain page */
+.online_contain{
+    margin-top: 40px;
+}
+.online_contain .interviews_contain{
+    float: left;
+    width: 770px;
+}
+.online_contain .interviews_contain h3{
+    font:normal 24px "微软雅黑";
+    margin: 0 0 15px 10px;
+}
+.online_contain .interviews_intro p{
+    margin-left: 10px;
+    text-indent: 2em;
+    line-height: 2;
+}
+.online_contain .interviews_con{
+    margin-top: 20px;
+    position: relative;
+}
+.online_contain .interviews_con .tab_nav{
+    position: absolute;
+    top: 10px;
+    right: 8px;
+}
+.online_contain .interviews_con .tab_nav li{
+    float: left;display: inline;
+    margin-left: 20px;
+    font-size: 14px;
+}
+.online_contain .interviews_con .tab_nav li .current{
+    color: #f3843e;
+}
+.online_contain .interviews_con .box{
+    padding: 20px;
+    background: #fff;
+}
+.online_contain .interviews_con .ask_layer .fl{
+    float: left;
+    position: relative;
+    width: 612px;
+    height: 84px;
+}
+.online_contain .interviews_con .ask_layer .fl span{
+    position: absolute;
+    bottom:2px;
+    right: 5px;
+    color: #b0b0b0;
+}
+.online_contain .interviews_con .ask_layer textarea{
+    width: 612px;height: 84px;
+    overflow: auto;
+    border:#dcdcdc solid 1px;
+    resize: none;
+}
+.online_contain .interviews_con .box .ask_btn{
+    width: 76px;
+    height: 30px;line-height: 30px;
+    float: left;display: inline;
+    margin:22px 0 0 33px;
+    color: #fff;
+    background: #f3843e;
+    border: none;
+}
+.online_contain .interviews_con .ask_list{
+    margin-top: 20px;
+}
+.ask_list li{
+    padding-bottom: 10px;
+    border-bottom: #f4f4f4 solid 1px;
+    margin-top: 10px;
+}
+.ask_list .user_info{
+    float: left;
+}
+.ask_list .user_info p{
+    text-align: center;
+    color: #f3843e;
+}
+.ask_list .ask_info{
+    float: left;display: inline;
+    margin-top: 16px;
+    width: 636px;
+}
+.ask_list  .ask_con{
+    margin-left: 13px;
+}
+.ask_list .ask_info .time{
+    margin-top: 5px;
+    text-align: right;
+    color: #8f8f8f;
+}
+.ask_list .ask_info .time a{
+    color: #f3843e;
+    margin-left: 6px;
+}
+.ask_list .answer_con{
+    padding: 10px; ;
+    background: #fafafa;
+    border:#f7f7f7 solid 1px;
+    margin-top: 18px;
+}
+.ask_list .answer_con .user_info p{
+    color: #f33e3e;
+}
+.ask_list .answer_con .fr{
+    float: left;display: inline;
+    margin-left:10px;
+    width: 564px;
+}
+.online_contain .side_bar{
+    width: 190px;
+    float: right;
+}
+.online_contain .progress_interview{
+    text-align: center;
+}
+.online_contain .progress_interview .status{
+    color: #f3843e;
+    margin: 7px 0 5px;
+    font-size: 14px;
+}
+.online_contain .progress_interview .fav_btn{
+    margin-top: 5px;
+    text-align: right;
+}
+.online_contain .progress_interview .fav_btn a{
+    display: inline-block;
+    width: 76px;height: 30px;line-height: 30px;
+    background: #f3843e;
+    text-align: center;
+    color: #fff;
+}
+.online_contain .guests{
+    margin-top: 25px;
+}
+.online_contain .guests h3{
+    font: normal 24px "微软雅黑";
+    margin-bottom: 10px;
+}
+.online_contain .guest_list li{
+    margin-bottom: 15px;
+}
+.online_contain .guest_list .imgpic{
+    float: left;
+}
+.online_contain .guest_list .guest_info{
+    float: left;display: inline;
+    margin: 25px 0 0 10px;
+}
+.online_contain .guest_list .guest_info .name{
+    font-size: 16px;
+}
+.online_contain .guest_list .guest_info .level{
+    color:#986d5f;
+    display: inline-block;
+    width: 54px;height: 18px;line-height: 18px;
+    text-align: center;
+    font-size: 12px;
+    background: #fff9cd;
+    margin-top: 5px;
+}
+.online_contain .guest_list .intro{
+    clear: both;
+    padding-top: 8px;
+    color: #999;
+}
+.online_contain .answer_pop{
+    margin-top: 20px;
+    width: 418px;
+    padding: 10px 16px;
+    background: #fff;
+    box-shadow: 0 0 5px #e0e0e0;
+}
+.online_contain .answer_pop .hd{
+    position: relative;
+}
+.online_contain .answer_pop h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.online_contain .answer_pop .close_btn{
+    position: absolute;
+    right: 0px;top:2px;
+    font-size: 26px;
+    line-height: 16px;
+}
+.online_contain .answer_pop .ask_con{
+    padding: 5px;
+    background: #f5f5f5;
+}
+.online_contain .answer_pop .answer_box{
+    margin-top: 14px;
+}
+.online_contain .answer_pop .answer_box textarea{
+    width: 414px;height:68px;
+    border: #dcdcdc solid 1px;
+    resize: none;
+    overflow: auto;
+}
+.online_contain .answer_pop .answer_btn{
+    margin-top: 10px;
+    text-align: right;
+}
+.online_contain .answer_pop .answer_btn button{
+    border: none;
+    display: inline-block;
+    background: #f3843e;
+    width: 52px;height: 20px;line-height: 18px;
+    color: #fff;
+}
+/* profile page */
+.profile_contain{
+    margin-top: 40px;
+}
+.profile_contain .prompt{
+    height: 30px;line-height: 30px;
+    background: #dedede;
+    text-align: center;
+}
+.profile_contain .prompt a{
+    color: #f2843e;
+    margin-left: 15px;
+}
+.profile_contain .profile_box{
+    background: #fff;
+    padding: 30px 50px 10px;
+}
+.profile_contain .profile_box h3{
+    font: normal 24px "微软雅黑";
+    margin-bottom: 10px;
+}
+.profile_contain .recommend_course .list{
+    margin-right: -230px;
+}
+.profile_contain .recommend_course .list li{
+    float: left;display: inline;
+    width: 330px;height: 18px;
+    margin-right: 230px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.profile_contain .my_reg{
+    margin-top: 20px;
+}
+.profile_contain .my_reg .list li{
+    margin-bottom: 10px;
+}
+.profile_contain .my_reg .list .level{
+    display: inline-block;
+    width: 36px;height: 18px; line-height: 18px;
+    text-align: center;
+    background: #dedede;
+    color: #333;
+}
+.profile_contain .my_reg .list .name{
+    display: inline-block;
+    margin-left: 13px;
+    width: 300px;
+}
+.profile_contain .my_reg .list .time{
+    display: inline-block;
+    margin-left: 10px;
+    width: 110px;
+}
+.profile_contain .my_reg .list .status{
+    display: inline-block;
+    margin-left: 38px;
+    width: 68px;
+}
+.profile_contain .my_reg .list .status_on{
+    color: #f3843e;
+}
+.profile_contain .my_reg .list .view_btn{
+    display: inline-block;
+    margin-left: 200px;
+    width: 96px;height: 30px;
+    text-align: center;line-height: 30px;
+    background: #f3843e;
+    color: #fff;
+}
+.profile_contain .myfav{
+    margin-top: 20px;
+}
+.profile_contain .view_all{
+    text-align: center;
+    margin-top: 10px;
+}
+.profile_contain .view_all a{
+    color: #999;
+}
+.profile_contain .view_all_btn{
+    display: inline-block;
+    background: url("images/arrow.png") -22px -100px no-repeat;
+    width: 7px;height: 5px;
+    margin-right: 5px;
+    vertical-align: 2px;
+}
+.profile_contain .my_comments{
+    margin-top: 20px;
+}
+.profile_contain .my_comments .list li{
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: #f4f4f4 solid 1px;
+    position: relative;
+}
+.profile_contain .my_comments .imgpic{
+    float: left;
+}
+.profile_contain .my_comments .comment_info{
+    float: left;display: inline;
+    margin-left: 10px;
+    color: #999;
+}
+.profile_contain .my_comments .comment_info .tit{
+    color: #f3843e;
+    margin: 0 5px;
+}
+.profile_contain .my_comments .comment_info .comment_con{
+    color: #333;
+    margin-top: 10px;
+}
+.profile_contain .my_comments .time{
+    position: absolute;
+    right: 0;top:0;
+    color: #8f8f8f;
+}
+.profile_contain .my_comments .answer_box{
+    float: right;display: inline;
+    margin-top: 60px;
+}
+.profile_contain .my_comments .answer_box .imgpic{
+    float: right;
+}
+.profile_contain .my_comments .answer_box .answer_info{
+    float: right;display: inline;
+    margin-right: 10px;
+    text-align: right;
+    color: #999;
+}
+.profile_contain .my_comments .answer_box .answer_info .tit{
+    color: #f3843e;
+    margin: 0 5px;
+}
+.profile_contain .my_comments .answer_box .answer_info .answer_con{
+    color: #333;
+    margin-top: 10px;
+}
+/* self tutorial page */
+.tutorial_contain{
+    margin-top: 40px;
+}
+.tutorial_contain .main_contain{
+    width: 100%;
+    float: left;
+}
+.tutorial_contain .main_contain .main_con{
+    margin-left: 218px;
+    background: #fff;
+    padding: 10px 20px 25px;
+}
+.tutorial_contain .main_contain .tool{
+
+}
+.tutorial_contain .main_contain .tool span{
+    font-size: 14px;
+    color: #986d5f;
+    margin-right: 5px;
+}
+.tutorial_contain .main_contain .tool a{
+    display: inline-block;
+    background: #fff9cd;
+    color: #986d5f;
+    height: 18px;line-height: 18px;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+.tutorial_contain .main_contain .course_item{
+    margin-top: 25px;
+}
+.tutorial_contain .main_contain .course_item h3{
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+.tutorial_contain .main_contain .course_item h3 span{
+    font-size: 12px;
+    color: #8f8f8f;
+    margin-left: 7px;
+}
+.tutorial_contain .main_contain .course_item .info{
+    color: #555;
+    margin-bottom: 8px;
+}
+.tutorial_contain .main_contain .course_item .taglist{
+    float: left;
+}
+.tutorial_contain .main_contain .course_item .operate{
+    float: right;
+    color: #999;
+}
+.tutorial_contain .main_contain .course_item .taglist li{
+    float: left;display: inline;
+    height: 18px;line-height: 18px;
+    padding: 0 5px;
+    background: #ececec;
+    color: #999;
+    margin-right: 10px;
+}
+.tutorial_contain .side_menu{
+    float:left;
+    margin-left: -100%;
+    width: 180px;
+    padding-left: 34px;
+}
+.tutorial_contain .side_menu .menu{
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.tutorial_contain .side_menu .menu .close,.tutorial_contain .side_menu .menu .open,.tutorial_contain .side_menu .menu .normal{
+    display: inline-block;
+    margin-right: 5px;
+    background: url("images/arrow.png") 999em 0 no-repeat;
+}
+.tutorial_contain .side_menu .menu .close{
+    background-position: 0 -192px;
+    width: 7px;height: 7px;
+    vertical-align: 2px;
+}
+.tutorial_contain .side_menu .menu .open{
+    width: 7px;height: 7px;
+    background-position: -8px -192px;
+}
+.tutorial_contain .side_menu .second_menu{
+    margin: 10px 0 0 20px;
+    font-size: 12px;
+}
+.tutorial_contain .side_menu .second_menu li{
+    margin-bottom: 6px;
+}
+.tutorial_contain .side_menu .second_menu .open{
+
+}
+.tutorial_contain .side_menu .second_menu .close{
+
+ }
+.tutorial_contain .side_menu .second_menu .normal{
+    padding-left: 12px;
+}
+.tutorial_contain .side_menu .third_menu{
+    margin: 5px 0 0 35px;
+}
+.tutorial_contain .side_menu .third_menu a{
+    color: #999;
+}
+.tutorial_contain .side_menu .no_child:hover,.tutorial_contain .side_menu .current{
+    color: #f2843e;
+}
+.tutorial_contain .side_menu .no_child s{
+    background: url("images/arrow.png") 0 -203px no-repeat;
+    width: 14px;height: 7px;
+    vertical-align: 2px;
+    display: none;
+    margin-left: 5px;
+}
+.tutorial_contain .side_menu .no_child:hover s,.tutorial_contain .side_menu .current s{
+    display: inline-block;
 }
 
-.main {
-  float: left;
-  width: 100%;
+.tutorial_contain .side_menu .third_menu li{
+    margin-bottom: 3px;
 }
-.inmain {
-  padding: 0 30px 10px 0;
-  min-height: 350px;
-  margin-left: 100px;
+.tutorial_contain h2{
+    font-size: 20px;
+    margin: 20px 0 0 15px;
 }
-.menu{
-  margin-left: -100%;
-  background: #f5f5f5;
-  padding: 15px 0;
-  float: left;
-  display: inline;
-  width: 100px;
-  min-height: 350px;
+.tutorial_contain h2 .teacher{
+    font-size: 12px;
+    color: #8f8f8f;
+    margin-left: 10px;
+}
+.tutorial_contain .interactArea{
+    margin:10px 0 0 15px;
+    color: #999;
+}
+.tutorial_contain .main{
+    margin-top: 25px;
+}
+.tutorial_contain .video_box{
+    float: left;
+    width: 740px;
+}
+.tutorial_contain .video_box .gg{
+    margin-top: 20px;
+}
+.tutorial_contain .side_bar{
+    float: right;
+    width: 222px;
+}
+.tutorial_contain .tab_nav{
+    margin-left: 22px;
+}
+.tutorial_contain .tab_nav li{
+    float: left;
+    font-size: 24px;
+    color: #999;
+}
+.tutorial_contain .tab_nav li.current{
+    color: #666;
+}
+.tutorial_contain .tab_nav .separated{
+    display: inline-block;
+    width: 1px;height: 15px;
+    margin: 13px 30px 0;
+    background: #999;
+}
+.tutorial_contain .side_bar h3{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.tutorial_contain .side_bar .course_intro,.tutorial_contain .side_bar .course_outline{
+    margin-top: 20px;
+    color: #999;
+}
+.tutorial_contain .side_bar .course_intro p{
+    text-indent: 2em;
+}
+.tutorial_contain .side_bar .btns{
+    margin-top: 20px;
+}
+.tutorial_contain .side_bar .fav_btn,.tutorial_contain .side_bar .sign_btn{
+    float: left;display: inline;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+}
+.tutorial_contain .side_bar .fav_btn{
+    width: 96px;
+    background: #999;
+
+}
+.tutorial_contain .side_bar .sign_btn{
+    background: #8d4934;
+    width: 108px;
+    margin-left: 18px;
+}
+.tutorial_contain .side_bar .course_about{
+    margin-top: 20px;
+}
+.tutorial_contain .side_bar .course_about h3{
+    margin-bottom: 10px;
+}
+.tutorial_contain .side_bar .course_about .list li{
+    margin-bottom: 12px;
+}
+.tutorial_contain .course_about .list p{
+    margin-bottom: 5px;
+    color: #8f8f8f;
+}
+.tutorial_contain .course_about .list .tit{
+    font-size: 14px;
+}
+.tutorial_contain .course_about .list .tit a{
+    color: #333;
+}
+/* Celebrity classroom */
+.celebrity_contain{
+
+}
+.celebrity_contain .col_main{
+    margin-top: 25px;
+}
+.celebrity_contain .col_main .rank{
+    float: left;display: inline;
+    margin-left: 20px;
+    width: 212px;
+}
+.celebrity_contain .col_main .rank h3{
+    margin-bottom: 10px;
+}
+.celebrity_contain .col_main .rank_list li{
+    margin-bottom: 8px;
+}
+.celebrity_contain .col_main .video{
+    float: left;display: inline;
+    margin-left: 30px;
+    width: 412px;
+}
+.celebrity_contain .col_main .right{
+    float: right;
+    width: 282px;
+}
+.celebrity_contain .col_main .right h3{
+    margin-bottom: 5px;
+}
+.celebrity_contain .col_main .intro p{
+    margin-top: 5px;
+    color: #999;
+}
+.celebrity_contain .col_main .recommend{
+}
+.celebrity_contain .col_main .recommend .recommend_list{
+    position: relative;
+    height: 78px;
+}
+.celebrity_contain .col_main .recommend .prebtn,.celebrity_contain .col_main .recommend .nextbtn{
+    background: url("images/arrow.png") 999em 0 no-repeat;
+    position: absolute;
+    width: 10px;height: 25px;
+    top:50%;
+    margin-top: -13px;
+    text-indent: -999em;
+}
+.celebrity_contain .col_main .recommend .prebtn{
+    left: 0;
+    background-position: 0 -160px;
+}
+.celebrity_contain .col_main .recommend .nextbtn{
+    right: 0;
+    background-position: -16px -160px;
+}
+.celebrity_contain .col_main .recommend_contain{
+    margin-left: 20px;
+    width: 244px;
+    height: 78px;
+    overflow: hidden;
+}
+.celebrity_contain .col_main .recommend_contain .box{
+    width: 9999px;
+}
+.celebrity_contain .col_main .recommend_contain li{
+    float: left;
+    display:inline;
+    margin-right: 5px;
+}
+.celebrity_contain .program{
+    margin-top: 12px;
+}
+.celebrity_contain .program .tab_nav{
+    height: 42px;line-height: 58px;
+    margin-bottom: 15px;
+}
+.celebrity_contain .program .prebtn,.celebrity_contain .program .nextbtn{
+    width: 21px;
+    height: 42px;
+    text-indent: -999em;
+}
+.celebrity_contain .program .prebtn{
+    background-position: 0 -112px;
+    float: left;display: inline;
+}
+.celebrity_contain .program .nextbtn{
+    background-position: -24px -112px;
+    float: right;display: inline;
+}
+.celebrity_contain .program .box_contain,.celebrity_contain .program .box_contain .box{
+    float: left;
+}
+.celebrity_contain .program .box_contain{
+    width: 902px;height: 42px;
+    margin-left: 26px;
+    position: relative;
+    overflow: hidden;
+}
+.celebrity_contain .program .box_contain .box{
+    width: 9999px;
+}
+.celebrity_contain .program .box_contain .box li{
+    float: left;display: inline;
+    width: 104px;height: 42px;line-height: 42px;
+    text-align: center;
+    margin-right: 10px;
+    color: #333;
+    font-size: 14px;
+}
+.celebrity_contain .program .box_contain .box li.current{
+    background: #f3843e;
+    color: #fff;
+}
+.celebrity_contain h3{
+    font-size: 24px;
+}
+.celebrity_contain .common_module h3{
+    margin:0 0 10px 20px;
+}
+.celebrity_contain .common_module .list{
+    margin-left: 15px;
+}
+.celebrity_contain .common_module .list li{
+    float:left;display: inline;
+    width: 218px;
+    margin-left:16px;
+}
+.celebrity_contain .common_module .list .tit{
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    margin-left: 5px;
+}
+.celebrity_contain .common_module .list .intro{
+    color: #999;
+    margin: 5px 0 0 5px;
+}
+.celebrity_contain .topics{
+    margin-top: 30px;
 }

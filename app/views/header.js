@@ -4,7 +4,7 @@ KISSY.add("app/views/header", function(S, View, MM) {
             var me = this;
             var request = MM.fetchAll([{
                 name: "Message_Number"
-            }], function(data) {
+             }], function(data) {
                 var number = data.get("messageCount");
                 me.setViewPagelet({
                     mesNumber: number
